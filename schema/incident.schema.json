@@ -1,0 +1,202 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/yanirs-claudecode/abusive-free-palestine/schema/incident.schema.json",
+  "title": "Free Palestine Abuse Tracker — Dataset",
+  "description": "Schema for the incidents.json dataset file.",
+  "type": "object",
+  "required": ["meta", "incidents"],
+  "additionalProperties": false,
+  "properties": {
+    "meta": {
+      "type": "object",
+      "required": ["last_updated", "incident_count", "notes", "primary_sources"],
+      "additionalProperties": false,
+      "properties": {
+        "last_updated": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+          "description": "ISO date of most recent write to the file."
+        },
+        "incident_count": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Must match incidents array length."
+        },
+        "notes": {
+          "type": "string",
+          "description": "Free-text field recording current state of dataset, known gaps, or curation decisions."
+        },
+        "primary_sources": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Main sources consulted to date."
+        }
+      }
+    },
+    "incidents": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/incident" }
+    }
+  },
+  "definitions": {
+    "incident": {
+      "type": "object",
+      "required": [
+        "id", "date", "date_display", "date_note", "country", "location",
+        "location_short", "category", "summary", "detail", "slogan_recorded",
+        "slogan_verbatim", "accompanied_by", "target", "sources", "legal_outcome",
+        "caveat", "tags", "added", "added_by", "last_updated"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9-]*[a-z0-9]$",
+          "description": "Stable human-readable slug: {country}-{city_abbr}-{YYYY-MM-DD}-{brief_label}."
+        },
+        "date": {
+          "type": "string",
+          "pattern": "^\\d{4}(-\\d{2}(-\\d{2})?)?$",
+          "description": "ISO 8601 date. May be YYYY, YYYY-MM, or YYYY-MM-DD."
+        },
+        "date_display": {
+          "type": "string",
+          "description": "Human-readable date string for UI display."
+        },
+        "date_note": {
+          "type": ["string", "null"],
+          "description": "Optional note when date precision is limited or a range applies."
+        },
+        "country": {
+          "type": "string",
+          "pattern": "^[A-Z]{2}$",
+          "description": "ISO 3166-1 alpha-2 country code."
+        },
+        "location": {
+          "type": "string",
+          "description": "Full location: suburb/neighbourhood, city, state/region."
+        },
+        "location_short": {
+          "type": "string",
+          "description": "Compact location for UI badges."
+        },
+        "category": {
+          "type": "string",
+          "enum": [
+            "verbal_abuse",
+            "graffiti_vandalism",
+            "physical_assault",
+            "protest_intimidation",
+            "school",
+            "workplace",
+            "social_media",
+            "criminal_conviction",
+            "property_damage"
+          ]
+        },
+        "summary": {
+          "type": "string",
+          "description": "One sentence, active voice, factual."
+        },
+        "detail": {
+          "type": "string",
+          "description": "Full prose account. No markdown."
+        },
+        "slogan_recorded": {
+          "type": "boolean",
+          "description": "Was 'Free Palestine' (or variant) explicitly documented in the incident?"
+        },
+        "slogan_verbatim": {
+          "type": ["string", "null"],
+          "description": "Exact words as documented; null if not precisely recorded."
+        },
+        "accompanied_by": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "death_threat",
+              "slurs",
+              "nazi_imagery",
+              "celebration_of_violence",
+              "pro_hamas_content",
+              "physical_violence",
+              "intimidation_of_children",
+              "religious_disruption",
+              "doxxing"
+            ]
+          },
+          "description": "What the slogan was paired with in this incident."
+        },
+        "target": {
+          "type": "string",
+          "enum": [
+            "individual_jew",
+            "jewish_children",
+            "jewish_institution",
+            "jewish_business",
+            "property",
+            "jewish_community_event",
+            "online"
+          ],
+          "description": "Who or what was the direct target of harm."
+        },
+        "sources": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["name", "url", "type"],
+            "additionalProperties": false,
+            "properties": {
+              "name": { "type": "string" },
+              "url": { "type": ["string", "null"] },
+              "type": {
+                "type": "string",
+                "enum": [
+                  "news",
+                  "court_record",
+                  "police_statement",
+                  "ngo_report",
+                  "government_statement",
+                  "social_media",
+                  "advocacy"
+                ]
+              }
+            }
+          }
+        },
+        "legal_outcome": {
+          "type": ["string", "null"],
+          "description": "Charges, convictions, sentences, or 'under investigation'."
+        },
+        "caveat": {
+          "type": ["string", "null"],
+          "description": "Material reliability concern the reader should know about."
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9_]+$"
+          },
+          "description": "Free-form lowercase_underscore tags."
+        },
+        "added": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+          "description": "ISO date this entry was added."
+        },
+        "added_by": {
+          "type": "string",
+          "description": "Session or contributor identifier."
+        },
+        "last_updated": {
+          "type": "string",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+          "description": "ISO date of most recent edit."
+        }
+      }
+    }
+  }
+}

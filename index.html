@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>"Free Palestine" as Abuse — Incident Tracker</title>
+<style>
+  /* ── Reset & tokens ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #f8f7f4;
+    --surface: #ffffff;
+    --surface2: #f2f1ee;
+    --border: #ddd9d0;
+    --text: #1a1917;
+    --text2: #5a5650;
+    --text3: #8a8580;
+    --accent: #1c4ed8;
+    --accent-dim: #dbeafe;
+    --warn: #92400e;
+    --warn-bg: #fef3c7;
+    --warn-border: #fcd34d;
+    --legal-bg: #ecfdf5;
+    --legal-border: #6ee7b7;
+    --legal-text: #065f46;
+    --focus: #1c4ed8;
+    --header-bg: #1a1917;
+    --header-text: #f8f7f4;
+
+    /* Accompaniment badge colours (bg / text) */
+    --badge-death_threat: #fee2e2;
+    --badge-death_threat-t: #991b1b;
+    --badge-slurs: #fce7f3;
+    --badge-slurs-t: #9d174d;
+    --badge-nazi_imagery: #1a1917;
+    --badge-nazi_imagery-t: #f8f7f4;
+    --badge-celebration_of_violence: #fef3c7;
+    --badge-celebration_of_violence-t: #78350f;
+    --badge-pro_hamas_content: #fee2e2;
+    --badge-pro_hamas_content-t: #7f1d1d;
+    --badge-physical_violence: #ffedd5;
+    --badge-physical_violence-t: #7c2d12;
+    --badge-intimidation_of_children: #ede9fe;
+    --badge-intimidation_of_children-t: #4c1d95;
+    --badge-religious_disruption: #e0e7ff;
+    --badge-religious_disruption-t: #312e81;
+    --badge-doxxing: #f3e8ff;
+    --badge-doxxing-t: #581c87;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #151413;
+      --surface: #1e1d1b;
+      --surface2: #252320;
+      --border: #3a3834;
+      --text: #f0ede8;
+      --text2: #a8a49e;
+      --text3: #6e6a64;
+      --accent: #60a5fa;
+      --accent-dim: #1e3a5f;
+      --warn: #fbbf24;
+      --warn-bg: #292210;
+      --warn-border: #78350f;
+      --legal-bg: #072b1a;
+      --legal-border: #065f46;
+      --legal-text: #6ee7b7;
+      --header-bg: #0f0e0d;
+      --header-text: #f0ede8;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #151413;
+    --surface: #1e1d1b;
+    --surface2: #252320;
+    --border: #3a3834;
+    --text: #f0ede8;
+    --text2: #a8a49e;
+    --text3: #6e6a64;
+    --accent: #60a5fa;
+    --accent-dim: #1e3a5f;
+    --warn: #fbbf24;
+    --warn-bg: #292210;
+    --warn-border: #78350f;
+    --legal-bg: #072b1a;
+    --legal-border: #065f46;
+    --legal-text: #6ee7b7;
+    --header-bg: #0f0e0d;
+    --header-text: #f0ede8;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--text);
+    background: var(--bg);
+    min-height: 100vh;
+  }
+
+  /* ── Header ── */
+  .site-header {
+    background: var(--header-bg);
+    color: var(--header-text);
+    padding: 1.5rem 1.5rem 1.25rem;
+  }
+  .site-header h1 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.25rem;
+  }
+  .site-header .subtitle {
+    font-size: 0.85rem;
+    opacity: 0.65;
+    margin-bottom: 0.75rem;
+    max-width: 70ch;
+  }
+  .stats-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    font-size: 0.82rem;
+    opacity: 0.8;
+  }
+  .stat { display: flex; flex-direction: column; }
+  .stat-n { font-size: 1.4rem; font-weight: 700; line-height: 1; opacity: 1; }
+  .stat-l { opacity: 0.7; }
+
+  /* ── Context note ── */
+  .context-note {
+    background: var(--warn-bg);
+    border-left: 3px solid var(--warn-border);
+    padding: 0.75rem 1rem;
+    font-size: 0.82rem;
+    color: var(--warn);
+    line-height: 1.5;
+  }
+  .context-note a { color: inherit; }
+
+  /* ── Layout ── */
+  .layout {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 0;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: start;
+  }
+
+  /* ── Filter sidebar ── */
+  .filter-panel {
+    position: sticky;
+    top: 0;
+    max-height: 100vh;
+    overflow-y: auto;
+    background: var(--surface);
+    border-right: 1px solid var(--border);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .filter-panel h2 {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text3);
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+  .filter-group { display: flex; flex-direction: column; gap: 0.5rem; }
+  .filter-group label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    cursor: pointer;
+    color: var(--text2);
+  }
+  .filter-group label:hover { color: var(--text); }
+  .filter-group input[type="checkbox"] { width: 15px; height: 15px; cursor: pointer; }
+
+  .search-input {
+    width: 100%;
+    padding: 0.45rem 0.6rem;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    background: var(--surface2);
+    color: var(--text);
+    font-size: 0.85rem;
+    outline: none;
+  }
+  .search-input:focus { border-color: var(--focus); box-shadow: 0 0 0 2px var(--accent-dim); }
+
+  .caveat-filter {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    cursor: pointer;
+    color: var(--text2);
+  }
+  .caveat-filter input { width: 15px; height: 15px; cursor: pointer; }
+
+  .btn-export {
+    width: 100%;
+    padding: 0.5rem;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+  }
+  .btn-export:hover { opacity: 0.9; }
+  .btn-export:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+
+  hr.sep { border: none; border-top: 1px solid var(--border); }
+
+  /* ── Incident list ── */
+  .incident-list-wrap { padding: 1rem; }
+  .list-status {
+    font-size: 0.82rem;
+    color: var(--text3);
+    margin-bottom: 0.75rem;
+  }
+
+  .incident-list { display: flex; flex-direction: column; gap: 0.6rem; }
+
+  .incident-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    contain: layout;
+  }
+
+  .card-header {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.85rem 1rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    color: var(--text);
+  }
+  .card-header:focus-visible { outline: 2px solid var(--focus); outline-offset: -2px; }
+
+  .card-meta { flex: 0 0 auto; display: flex; flex-direction: column; gap: 0.25rem; min-width: 120px; }
+  .card-date { font-size: 0.8rem; color: var(--text3); font-variant-numeric: tabular-nums; }
+  .card-location {
+    font-size: 0.78rem;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 0.1rem 0.35rem;
+    color: var(--text2);
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 130px;
+  }
+  .card-cat {
+    font-size: 0.75rem;
+    border-radius: 3px;
+    padding: 0.1rem 0.35rem;
+    font-weight: 600;
+    display: inline-block;
+    background: var(--accent-dim);
+    color: var(--accent);
+  }
+
+  .card-body { flex: 1 1 auto; }
+  .card-summary {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    text-align: left;
+  }
+  .card-warn-flag {
+    display: inline-block;
+    font-size: 0.85rem;
+    margin-left: 0.35rem;
+    vertical-align: middle;
+  }
+  .card-toggle {
+    flex: 0 0 auto;
+    font-size: 0.75rem;
+    color: var(--text3);
+    align-self: center;
+  }
+
+  .card-detail {
+    padding: 0 1rem 1rem;
+    border-top: 1px solid var(--border);
+    display: none;
+  }
+  .card-detail.open { display: block; }
+
+  .detail-section { margin-top: 0.75rem; }
+  .detail-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text3);
+    font-weight: 600;
+    margin-bottom: 0.2rem;
+  }
+  .detail-prose { font-size: 0.88rem; color: var(--text2); line-height: 1.6; }
+
+  blockquote.slogan {
+    border-left: 3px solid var(--accent);
+    padding: 0.4rem 0.75rem;
+    font-style: italic;
+    background: var(--accent-dim);
+    border-radius: 0 5px 5px 0;
+    font-size: 0.88rem;
+    color: var(--text);
+    margin: 0;
+  }
+
+  .badge-row { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+  .badge {
+    font-size: 0.73rem;
+    border-radius: 3px;
+    padding: 0.15rem 0.4rem;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.2rem;
+  }
+
+  .legal-block {
+    background: var(--legal-bg);
+    border: 1px solid var(--legal-border);
+    border-radius: 5px;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.85rem;
+    color: var(--legal-text);
+  }
+  .legal-block strong { font-weight: 600; }
+
+  .caveat-block {
+    background: var(--warn-bg);
+    border: 1px solid var(--warn-border);
+    border-radius: 5px;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.84rem;
+    color: var(--warn);
+    line-height: 1.5;
+  }
+
+  .sources-list { list-style: none; display: flex; flex-direction: column; gap: 0.2rem; }
+  .sources-list li { font-size: 0.83rem; }
+  .sources-list a { color: var(--accent); text-decoration: none; }
+  .sources-list a:hover { text-decoration: underline; }
+
+  /* ── Mobile ── */
+  .mobile-filter-toggle {
+    display: none;
+    width: 100%;
+    padding: 0.6rem 1rem;
+    background: var(--surface);
+    border: none;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: left;
+  }
+  .mobile-filter-toggle:focus-visible { outline: 2px solid var(--focus); }
+
+  @media (max-width: 700px) {
+    .layout {
+      grid-template-columns: 1fr;
+    }
+    .filter-panel {
+      position: static;
+      max-height: none;
+      border-right: none;
+      border-bottom: 1px solid var(--border);
+      display: none;
+    }
+    .filter-panel.mobile-open { display: flex; }
+    .mobile-filter-toggle { display: block; }
+    .card-header { flex-wrap: wrap; }
+    .card-meta { min-width: unset; flex-direction: row; flex-wrap: wrap; align-items: center; }
+  }
+
+  /* ── Empty state ── */
+  .empty-state {
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--text3);
+    font-size: 0.9rem;
+  }
+
+  /* ── Loading / error ── */
+  .loading { padding: 2rem; text-align: center; color: var(--text3); }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <h1>"Free Palestine" as Abuse — Incident Tracker</h1>
+  <p class="subtitle">A citable record of incidents in which the slogan "Free Palestine" was explicitly used as a vehicle for antisemitic abuse, threats, or celebration of violence against Jews.</p>
+  <div class="stats-row" id="stats-row">
+    <span class="stat"><span class="stat-n" id="stat-total">—</span><span class="stat-l">incidents</span></span>
+    <span class="stat"><span class="stat-n" id="stat-countries">—</span><span class="stat-l">countries</span></span>
+    <span class="stat"><span class="stat-n" id="stat-range">—</span><span class="stat-l">date range</span></span>
+    <span class="stat"><span class="stat-n" id="stat-updated">—</span><span class="stat-l">last updated</span></span>
+  </div>
+</header>
+
+<div class="context-note">
+  <strong>Scope:</strong> This dataset records incidents in which the slogan "Free Palestine" was explicitly used as a vehicle for antisemitic abuse, threats, or celebration of violence against Jews. It does not claim the slogan is inherently antisemitic. For context on how the slogan is interpreted and debated, see the <a href="https://www.adl.org/resources/backgrounder/slogan-free-palestine" target="_blank" rel="noopener">ADL backgrounder</a> and the <a href="https://www.ajc.org/news/what-does-free-palestine-really-mean" target="_blank" rel="noopener">AJC explainer</a>. This record exists because those who mean it peacefully have reason to distinguish themselves clearly — for example, by saying "Free Palestine. No more war! Peace for all!"
+</div>
+
+<button class="mobile-filter-toggle" id="mobile-filter-toggle" aria-expanded="false" aria-controls="filter-panel">
+  ☰ Filters &amp; Search
+</button>
+
+<div class="layout">
+  <aside class="filter-panel" id="filter-panel" role="search" aria-label="Filter incidents">
+
+    <div>
+      <h2>Search</h2>
+      <input type="search" class="search-input" id="search-input" placeholder="Search incidents…" aria-label="Search incidents">
+    </div>
+
+    <hr class="sep">
+
+    <div>
+      <h2>Country</h2>
+      <div class="filter-group" id="country-filters"></div>
+    </div>
+
+    <hr class="sep">
+
+    <div>
+      <h2>Category</h2>
+      <div class="filter-group" id="category-filters"></div>
+    </div>
+
+    <hr class="sep">
+
+    <div>
+      <h2>Accompanied by</h2>
+      <div class="filter-group" id="accompaniment-filters"></div>
+    </div>
+
+    <hr class="sep">
+
+    <label class="caveat-filter">
+      <input type="checkbox" id="caveat-filter"> ⚠️ Has caveat only
+    </label>
+
+    <hr class="sep">
+
+    <button class="btn-export" id="export-btn">Export filtered JSON</button>
+
+  </aside>
+
+  <main class="incident-list-wrap" id="main-content" aria-live="polite" aria-label="Incident list">
+    <p class="loading" id="loading-msg">Loading incidents…</p>
+    <p class="list-status" id="list-status" style="display:none"></p>
+    <div class="incident-list" id="incident-list"></div>
+  </main>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  // ── Constants ──
+  const CATEGORY_LABELS = {
+    verbal_abuse:         'Verbal abuse',
+    graffiti_vandalism:   'Graffiti / vandalism',
+    physical_assault:     'Physical assault',
+    protest_intimidation: 'Protest intimidation',
+    school:               'School',
+    workplace:            'Workplace',
+    social_media:         'Social media',
+    criminal_conviction:  'Criminal conviction',
+    property_damage:      'Property damage',
+  };
+
+  const ACCOMPANIMENT_LABELS = {
+    death_threat:            'Death threat',
+    slurs:                   'Slurs',
+    nazi_imagery:            'Nazi imagery',
+    celebration_of_violence: 'Celebrated violence',
+    pro_hamas_content:       'Pro-Hamas',
+    physical_violence:       'Physical violence',
+    intimidation_of_children:'Children targeted',
+    religious_disruption:    'Religious disruption',
+    doxxing:                 'Doxxing',
+  };
+
+  const COUNTRY_NAMES = { AU: 'Australia', US: 'United States', GB: 'United Kingdom', FR: 'France', DE: 'Germany', NL: 'Netherlands', CA: 'Canada' };
+
+  // ── State ──
+  let allIncidents = [];
+  let filteredIncidents = [];
+  let activeCountries = new Set();
+  let activeCategories = new Set();
+  let activeAccompaniments = new Set();
+  let caveatsOnly = false;
+  let searchQuery = '';
+
+  // ── DOM refs ──
+  const listEl = document.getElementById('incident-list');
+  const statusEl = document.getElementById('list-status');
+  const loadingEl = document.getElementById('loading-msg');
+  const searchInput = document.getElementById('search-input');
+  const caveatsCheckbox = document.getElementById('caveat-filter');
+  const exportBtn = document.getElementById('export-btn');
+  const mobileToggle = document.getElementById('mobile-filter-toggle');
+  const filterPanel = document.getElementById('filter-panel');
+
+  // ── Fetch ──
+  fetch('data/incidents.json')
+    .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(data => init(data))
+    .catch(err => {
+      loadingEl.textContent = 'Failed to load incidents.json. If running locally, serve via a local web server (e.g. python3 -m http.server).';
+      console.error(err);
+    });
+
+  function init(data) {
+    allIncidents = data.incidents || [];
+
+    // Stats
+    const meta = data.meta || {};
+    document.getElementById('stat-total').textContent = meta.incident_count ?? allIncidents.length;
+    const countries = [...new Set(allIncidents.map(i => i.country))];
+    document.getElementById('stat-countries').textContent = countries.length;
+    const dates = allIncidents.map(i => i.date).filter(Boolean).sort();
+    if (dates.length) {
+      const earliest = dates[dates.length - 1].slice(0, 4);
+      const latest = dates[0].slice(0, 4);
+      document.getElementById('stat-range').textContent = earliest === latest ? earliest : earliest + '–' + latest;
+    }
+    document.getElementById('stat-updated').textContent = meta.last_updated ?? '—';
+
+    buildFilters();
+    applyFilters();
+    loadingEl.style.display = 'none';
+    statusEl.style.display = '';
+
+    // Events
+    searchInput.addEventListener('input', () => { searchQuery = searchInput.value.trim().toLowerCase(); applyFilters(); });
+    caveatsCheckbox.addEventListener('change', () => { caveatsOnly = caveatsCheckbox.checked; applyFilters(); });
+    exportBtn.addEventListener('click', exportJSON);
+    mobileToggle.addEventListener('click', () => {
+      const open = filterPanel.classList.toggle('mobile-open');
+      mobileToggle.setAttribute('aria-expanded', String(open));
+    });
+  }
+
+  // ── Filter building ──
+  function buildFilters() {
+    // Countries
+    const countries = [...new Set(allIncidents.map(i => i.country))].sort();
+    buildCheckboxGroup('country-filters', countries, activeCountries, c => COUNTRY_NAMES[c] || c);
+
+    // Categories
+    const categories = [...new Set(allIncidents.map(i => i.category))].sort();
+    buildCheckboxGroup('category-filters', categories, activeCategories, c => CATEGORY_LABELS[c] || c);
+
+    // Accompaniments
+    const acc = [...new Set(allIncidents.flatMap(i => i.accompanied_by || []))].sort();
+    buildCheckboxGroup('accompaniment-filters', acc, activeAccompaniments, c => ACCOMPANIMENT_LABELS[c] || c);
+  }
+
+  function buildCheckboxGroup(containerId, values, activeSet, labelFn) {
+    const el = document.getElementById(containerId);
+    el.innerHTML = '';
+    values.forEach(v => {
+      const id = containerId + '-' + v;
+      const lbl = document.createElement('label');
+      const cb = document.createElement('input');
+      cb.type = 'checkbox';
+      cb.id = id;
+      cb.value = v;
+      cb.addEventListener('change', () => {
+        if (cb.checked) activeSet.add(v); else activeSet.delete(v);
+        applyFilters();
+      });
+      lbl.appendChild(cb);
+      lbl.appendChild(document.createTextNode(' ' + labelFn(v)));
+      el.appendChild(lbl);
+    });
+  }
+
+  // ── Filtering ──
+  function applyFilters() {
+    filteredIncidents = allIncidents.filter(i => {
+      if (activeCountries.size && !activeCountries.has(i.country)) return false;
+      if (activeCategories.size && !activeCategories.has(i.category)) return false;
+      if (activeAccompaniments.size && !i.accompanied_by.some(a => activeAccompaniments.has(a))) return false;
+      if (caveatsOnly && !i.caveat) return false;
+      if (searchQuery) {
+        const haystack = [i.summary, i.detail, i.location, i.slogan_verbatim].filter(Boolean).join(' ').toLowerCase();
+        if (!haystack.includes(searchQuery)) return false;
+      }
+      return true;
+    });
+
+    renderList();
+    statusEl.textContent = 'Showing ' + filteredIncidents.length + ' of ' + allIncidents.length + ' incidents.';
+  }
+
+  // ── Rendering ──
+  function renderList() {
+    listEl.innerHTML = '';
+    if (!filteredIncidents.length) {
+      const empty = document.createElement('p');
+      empty.className = 'empty-state';
+      empty.textContent = 'No incidents match the current filters.';
+      listEl.appendChild(empty);
+      return;
+    }
+    filteredIncidents.forEach((inc, idx) => {
+      listEl.appendChild(buildCard(inc, idx));
+    });
+  }
+
+  function buildCard(inc, idx) {
+    const card = document.createElement('article');
+    card.className = 'incident-card';
+    card.setAttribute('data-id', inc.id);
+
+    // Header button (toggle)
+    const btn = document.createElement('button');
+    btn.className = 'card-header';
+    btn.setAttribute('aria-expanded', 'false');
+    btn.setAttribute('aria-controls', 'detail-' + idx);
+
+    // Meta column
+    const metaDiv = document.createElement('div');
+    metaDiv.className = 'card-meta';
+
+    const dateEl = document.createElement('span');
+    dateEl.className = 'card-date';
+    dateEl.textContent = inc.date_display;
+    metaDiv.appendChild(dateEl);
+
+    const locEl = document.createElement('span');
+    locEl.className = 'card-location';
+    locEl.textContent = inc.location_short;
+    locEl.title = inc.location;
+    metaDiv.appendChild(locEl);
+
+    const catEl = document.createElement('span');
+    catEl.className = 'card-cat';
+    catEl.textContent = CATEGORY_LABELS[inc.category] || inc.category;
+    metaDiv.appendChild(catEl);
+
+    btn.appendChild(metaDiv);
+
+    // Summary
+    const bodyDiv = document.createElement('div');
+    bodyDiv.className = 'card-body';
+    const summaryEl = document.createElement('p');
+    summaryEl.className = 'card-summary';
+    summaryEl.textContent = inc.summary;
+    if (inc.caveat) {
+      const flag = document.createElement('span');
+      flag.className = 'card-warn-flag';
+      flag.textContent = '⚠️';
+      flag.setAttribute('aria-label', 'Has caveat');
+      flag.title = 'This entry has a caveat — see expanded details.';
+      summaryEl.appendChild(flag);
+    }
+    bodyDiv.appendChild(summaryEl);
+    btn.appendChild(bodyDiv);
+
+    // Toggle indicator
+    const toggleIndicator = document.createElement('span');
+    toggleIndicator.className = 'card-toggle';
+    toggleIndicator.textContent = '▼';
+    toggleIndicator.setAttribute('aria-hidden', 'true');
+    btn.appendChild(toggleIndicator);
+
+    card.appendChild(btn);
+
+    // Detail section
+    const detail = document.createElement('div');
+    detail.className = 'card-detail';
+    detail.id = 'detail-' + idx;
+    detail.innerHTML = buildDetailHTML(inc);
+    card.appendChild(detail);
+
+    // Toggle logic
+    btn.addEventListener('click', () => {
+      const open = detail.classList.toggle('open');
+      btn.setAttribute('aria-expanded', String(open));
+      toggleIndicator.textContent = open ? '▲' : '▼';
+    });
+    btn.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); btn.click(); }
+    });
+
+    return card;
+  }
+
+  function buildDetailHTML(inc) {
+    let html = '';
+
+    // Accompaniment badges
+    if (inc.accompanied_by && inc.accompanied_by.length) {
+      html += '<div class="detail-section"><div class="detail-label">Accompanied by</div><div class="badge-row">';
+      inc.accompanied_by.forEach(a => {
+        html += `<span class="badge" style="background:var(--badge-${a},#e5e7eb);color:var(--badge-${a}-t,#374151)">${esc(ACCOMPANIMENT_LABELS[a] || a)}</span>`;
+      });
+      html += '</div></div>';
+    }
+
+    // Slogan verbatim
+    if (inc.slogan_verbatim) {
+      html += `<div class="detail-section"><div class="detail-label">Slogan as documented</div><blockquote class="slogan">${esc(inc.slogan_verbatim)}</blockquote></div>`;
+    }
+
+    // Date note
+    if (inc.date_note) {
+      html += `<div class="detail-section"><div class="detail-label">Date note</div><p class="detail-prose" style="color:var(--text3)">${esc(inc.date_note)}</p></div>`;
+    }
+
+    // Detail
+    html += `<div class="detail-section"><div class="detail-label">Detail</div><p class="detail-prose">${esc(inc.detail)}</p></div>`;
+
+    // Legal outcome
+    if (inc.legal_outcome) {
+      html += `<div class="detail-section"><div class="legal-block"><strong>⚖️ Legal outcome:</strong> ${esc(inc.legal_outcome)}</div></div>`;
+    }
+
+    // Caveat
+    if (inc.caveat) {
+      html += `<div class="detail-section"><div class="caveat-block"><strong>⚠️ Caveat:</strong> ${esc(inc.caveat)}</div></div>`;
+    }
+
+    // Sources
+    if (inc.sources && inc.sources.length) {
+      html += '<div class="detail-section"><div class="detail-label">Sources</div><ul class="sources-list">';
+      inc.sources.forEach(s => {
+        if (s.url) {
+          html += `<li><a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${esc(s.name)}</a> <span style="color:var(--text3);font-size:0.78rem">[${esc(s.type)}]</span></li>`;
+        } else {
+          html += `<li>${esc(s.name)} <span style="color:var(--text3);font-size:0.78rem">[${esc(s.type)}, URL not confirmed]</span></li>`;
+        }
+      });
+      html += '</ul></div>';
+    }
+
+    return html;
+  }
+
+  function esc(str) {
+    if (str == null) return '';
+    return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  // ── Export ──
+  function exportJSON() {
+    const data = JSON.stringify(filteredIncidents, null, 2);
+    const blob = new Blob([data], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'incidents-filtered.json';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(() => URL.revokeObjectURL(url), 5000);
+  }
+
+})();
+</script>
+</body>
+</html>

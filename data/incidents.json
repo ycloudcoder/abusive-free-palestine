@@ -1,0 +1,683 @@
+{
+  "meta": {
+    "last_updated": "2026-08-22",
+    "incident_count": 17,
+    "notes": "Seed dataset (v0.1): Australian incidents researched August 2026. Sources include ECAJ 2025 Annual Report, ECAJ Anti-Bullying Rapid Review submission, Menzies Research Centre antisemitism tracker, ABC News, AAP, and specialist outlets. International expansion pending.",
+    "primary_sources": [
+      "ECAJ Annual Reports (ecaj.org.au)",
+      "ECAJ Anti-Bullying Rapid Review Submission (ecaj.org.au)",
+      "Menzies Research Centre antisemitism tracker (menziesrc.org)",
+      "ADL Audit of Antisemitic Incidents (adl.org)",
+      "Community Security Trust (cst.org.uk)",
+      "RIAS Germany (report-antisemitism.de)",
+      "Combat Antisemitism Movement (combatantisemitism.org)"
+    ]
+  },
+  "incidents": [
+    {
+      "id": "au-bondi-2026-01-31-mcmillan-conviction",
+      "date": "2026-01-31",
+      "date_display": "31 January 2026",
+      "date_note": "Incident occurred 31 January 2026; sentenced 21 April 2026.",
+      "country": "AU",
+      "location": "Bondi, Sydney, New South Wales",
+      "location_short": "Bondi, Sydney",
+      "category": "criminal_conviction",
+      "summary": "Zayne McMillan posed as if firing a weapon on the Bondi footbridge, yelled \"Free Palestine\" then \"F*** the Jews\" and threatened a Jewish man and his family; he was jailed for 12 months.",
+      "detail": "On 31 January 2026, Zayne Jason William McMillan, 23, a First Nations bricklayer, posed as if holding a firearm on the Bondi Beach footbridge — the site used in the IS-inspired December 2025 Hanukkah massacre — while a friend photographed him. He then yelled \"Free Palestine\" and, after being challenged, \"F*** the Jews\", and threatened a 47-year-old Jewish man walking with his family. He also intimidated a second visibly Jewish man walking with his son to a synagogue. McMillan pleaded guilty to three counts of offensive behaviour and two counts of intimidation. On 21 April 2026, Judge Michael Barko sentenced him to 12 months' jail with a nine-month non-parole period. The judge rejected the \"not an antisemite\" defence, noting that during roughly 35 minutes of conduct, \"not one other faith, belief or culture was referred to.\"",
+      "slogan_recorded": true,
+      "slogan_verbatim": "Free Palestine; F*** the Jews",
+      "accompanied_by": [
+        "death_threat",
+        "slurs",
+        "intimidation_of_children"
+      ],
+      "target": "individual_jew",
+      "sources": [
+        {
+          "name": "AAP (Miklos Bolza)",
+          "url": "https://aapnews.aap.com.au/news/man-jailed-for-mimicking-gut-wrenching-bondi-shooting",
+          "type": "news"
+        },
+        {
+          "name": "ABC News",
+          "url": "https://www.abc.net.au/news/2026-04-21/nsw-bondi-bridge-mimic-zayne-mcmillan-sentencing/106587396",
+          "type": "news"
+        },
+        {
+          "name": "J-Wire",
+          "url": "https://www.jwire.com.au/",
+          "type": "news"
+        }
+      ],
+      "legal_outcome": "Zayne Jason William McMillan, 23, pleaded guilty to three counts of offensive behaviour and two counts of intimidation. Sentenced 21 April 2026 by Judge Michael Barko to 12 months' jail with a nine-month non-parole period.",
+      "caveat": null,
+      "tags": [
+        "bondi",
+        "criminal_conviction",
+        "threat_with_weapon_gesture"
+      ],
+      "added": "2026-08-22",
+      "added_by": "research-session-2026-08-22",
+      "last_updated": "2026-08-22"
+    },
+    {
+      "id": "au-bondi-2025-11-graffiti",
+      "date": "2025-11",
+      "date_display": "Late November 2025",
+      "date_note": "Reported as occurring approximately two weeks before the Bondi Hanukkah attack of 14 December 2025.",
+      "country": "AU",
+      "location": "Bondi Beach, Sydney, New South Wales",
+      "location_short": "Bondi Beach, Sydney",
+      "category": "graffiti_vandalism",
+      "summary": "Buildings and bollards at Bondi Beach were scrawled with \"Free Palestine, F*** Israel\" and similar messages approximately two weeks before the 14 December 2025 IS-inspired Hanukkah massacre at the same location.",
+      "detail": "Approximately two weeks before the IS-inspired terrorist attack at Bondi Beach on 14 December 2025, buildings and bollards in the area were scrawled with \"Free Palestine, F*** Israel\", \"Israel commits genocide\", \"F*** the IDF\", and \"Israel has blood on their hands.\" Bondi Beach is a historically significant location for Sydney's Jewish community. Whether the graffiti was connected to the subsequent attack was not established by police.",
+      "slogan_recorded": true,
+      "slogan_verbatim": "Free Palestine, F*** Israel",
+      "accompanied_by": [],
+      "target": "jewish_community_event",
+      "sources": [
+        {
+          "name": "Combat Antisemitism Movement",
+          "url": "https://combatantisemitism.org/",
+          "type": "advocacy"
+        }
+      ],
+      "legal_outcome": null,
+      "caveat": "Reported by Combat Antisemitism Movement; independent corroboration not confirmed in sources consulted. No link established by police between this graffiti and the December 2025 terror attack.",
+      "tags": [
+        "bondi",
+        "sydney"
+      ],
+      "added": "2026-08-22",
+      "added_by": "research-session-2026-08-22",
+      "last_updated": "2026-08-22"
+    },
+    {
+      "id": "au-fitzroy-2025-10-07-graffiti-oct7",
+      "date": "2025-10-07",
+      "date_display": "7 October 2025",
+      "date_note": null,
+      "country": "AU",
+      "location": "Alexandra Parade / Brunswick Street, Fitzroy, Melbourne, Victoria",
+      "location_short": "Fitzroy, Melbourne",
+      "category": "graffiti_vandalism",
+      "summary": "On the second anniversary of the 7 October Hamas attacks, \"Glory to Hamas\" was painted on a Fitzroy billboard and \"Free Palestine\" and \"Oct 7, do it again\" appeared on a nearby building; Victoria Police and the AFP investigated whether the graffiti constituted a terrorism offence.",
+      "detail": "On the second anniversary of the Hamas attacks of 7 October 2023, \"Glory to Hamas\" was painted on a billboard at Alexandra Parade and Brunswick Street, Fitzroy. \"Free Palestine\" and \"Oct 7, do it again\" appeared on a building further along Alexandra Parade near Smith Street. Similar \"do it again\" graffiti appeared in Westgarth. Prime Minister Anthony Albanese called the graffiti \"abhorrent\"; Premier Jacinta Allan and Opposition Leader Sussan Ley condemned it. ECAJ co-CEO Alex Ryvchin called it despicable. Victoria Police and the Australian Federal Police jointly investigated whether the graffiti constituted a terrorism offence.",
+      "slogan_recorded": true,
+      "slogan_verbatim": "Free Palestine; Oct 7, do it again; Glory to Hamas",
+      "accompanied_by": [
+        "celebration_of_violence",
+        "pro_hamas_content"
+      ],
+      "target": "jewish_community_event",
+      "sources": [
+        {
+          "name": "ABC News",
+          "url": "https://www.abc.net.au/news/2025-10-07/october-7-commemorations-marred-by-antisemitic-graffiti/105860494",
+          "type": "news"
+        },
+        {
+          "name": "AAP / Canberra Times",
+          "url": "https://www.canberratimes.com.au/story/9082765/investigation-into-terrorist-propaganda-graffiti/",
+          "type": "news"
+        },
+        {
+          "name": "Daily Advertiser / AAP",
+          "url": "https://www.dailyadvertiser.com.au/story/9082765/terrorist-propaganda-graffiti-on-attack-anniversary/",
+          "type": "news"
+        }
+      ],
+      "legal_outcome": null,
+      "caveat": null,
+      "tags": [
+        "october_7_anniversary",
+        "melbourne",
+        "investigation_terrorism"
+      ],
+      "added": "2026-08-22",
+      "added_by": "research-session-2026-08-22",
+      "last_updated": "2026-08-22"
+    },
+    {
+      "id": "au-melbourne-2025-07-24-museum-mount-scopus",
+      "date": "2025-07-24",
+      "date_display": "24 July 2025",
+      "date_note": null,
+      "country": "AU",
+      "location": "Melbourne Museum, Carlton, Victoria",
+      "location_short": "Melbourne Museum, Carlton",
+      "category": "school",
+      "summary": "Gladstone Park Secondary College students chanted \"free, free Palestine\" at Grade 5 Mount Scopus Memorial College students on excursion at the Melbourne Museum, then called them \"dirty Jews\" and \"baby killers.\"",
+      "detail": "During a shared visit to the Melbourne Museum on 24 July 2025, students from Gladstone Park Secondary College (aged approximately 16–17) chanted \"free, free Palestine\" at Grade 5 students (aged 10–11) from Mount Scopus Memorial College, a Jewish school. The older students then called the younger children \"dirty Jews\" and \"baby killers.\" Mount Scopus principal Dan Sztrajt said a student \"got a tap on the shoulder, turned around and the vitriol started.\" One parent reported his 10-year-old son was \"terrified\"; another's grandfather said his granddaughter was \"totally traumatised\" and had no understanding of why she was being called a \"baby killer\" and a \"dirty Jew.\" Gladstone Park principal Veronica Hoy issued an apology, calling the conduct \"completely deplorable.\"",
+      "slogan_recorded": true,
+      "slogan_verbatim": "free, free Palestine",
+      "accompanied_by": [
+        "slurs",
+        "intimidation_of_children"
+      ],
+      "target": "jewish_children",
+      "sources": [
+        {
+          "name": "Australian Jewish News",
+          "url": "https://www.australianjewishnews.com/principal-apologises-for-student-behaviour/",
+          "type": "news"
+        },
+        {
+          "name": "J-Wire",
+          "url": "https://www.jwire.com.au/jewish-children-targeted-in-antisemitic-attack-at-questacon/",
+          "type": "news"
+        },
+        {
+          "name": "AJC timeline",
+          "url": "https://www.ajc.org/news/antisemitism-in-australia-a-timeline",
+          "type": "ngo_report"
+        }
+      ],
+      "legal_outcome": null,
+      "caveat": "ABC News and The Age covered this story on 25 July 2025 but specific article URLs were not confirmed in research; included by outlet name only. The Australian Jewish News and J-Wire URLs are confirmed.",
+      "tags": [
+        "melbourne",
+        "school_excursion",
+        "children"
+      ],
+      "added": "2026-08-22",
+      "added_by": "research-session-2026-08-22",
+      "last_updated": "2026-08-22"
+    },
+    {
+      "id": "au-melbourne-2025-06-melbourne-hebrew-graffiti",
+      "date": "2025-06",
+      "date_display": "June 2025",
+      "date_note": "The synagogue was graffitied twice in one day; exact date within June 2025 not confirmed in available sources.",
+      "country": "AU",
+      "location": "Toorak Road, Melbourne, Victoria",
+      "location_short": "Melbourne, Vic",
+      "category": "graffiti_vandalism",
+      "summary": "The heritage-listed Melbourne Hebrew Congregation was graffitied twice in one day with \"Free Palestine\" and \"Iran is da bomb\" inside a mushroom cloud; a 37-year-old man was later charged.",
+      "detail": "The Melbourne Hebrew Congregation synagogue on Toorak Road, a heritage-listed building, was graffitied twice in one day with \"Free Palestine\" and \"Iran is da bomb\" (written inside a mushroom cloud). A 37-year-old man was subsequently charged over a series of attacks on the synagogue, some carried out wearing a \"Ghostface\" mask.",
+      "slogan_recorded": true,
+      "slogan_verbatim": "Free Palestine; Iran is da bomb",
+      "accompanied_by": [],
+      "target": "jewish_institution",
+      "sources": [
+        {
+          "name": "Combat Antisemitism Movement",
+          "url": "https://combatantisemitism.org/",
+          "type": "advocacy"
+        },
+        {
+          "name": "Menzies Research Centre tracker",
+          "url": "https://www.menziesrc.org/news-feed/antisemitic-incidents-in-australia",
+          "type": "ngo_report"
+        }
+      ],
+      "legal_outcome": "A 37-year-old man was charged over a series of attacks on the synagogue, some carried out wearing a \"Ghostface\" mask.",
+      "caveat": "Precise date within June 2025 not confirmed in available reporting.",
+      "tags": [
+        "melbourne",
+        "heritage_building"
+      ],
+      "added": "2026-08-22",
+      "added_by": "research-session-2026-08-22",
+      "last_updated": "2026-08-22"
+    },
+    {
+      "id": "au-elsternwick-2025-06-vodafone-workplace",
+      "date": "2025-06",
+      "date_display": "June 2025",
+      "date_note": "Reported in late June 2025; exact date of incident within that period not confirmed.",
+      "country": "AU",
+      "location": "Elsternwick, Melbourne, Victoria",
+      "location_short": "Elsternwick, Melbourne",
+      "category": "workplace",
+      "summary": "An elderly disabled Jewish woman reported that a Vodafone store employee in Elsternwick repeatedly shouted \"Free Palestine\" at her, called her a \"dirty Zionist\", said \"Jews are disgusting\", and filmed her without consent; she told the Anti-Defamation Commission the slogan \"felt like a call for my murder.\"",
+      "detail": "An elderly disabled Jewish woman reported that a Vodafone store employee in Elsternwick, Melbourne, repeatedly shouted \"Free Palestine\" at her, called her a \"dirty Zionist\", said \"Jews are disgusting\", and demanded her phone and filmed her without consent. She told Anti-Defamation Commission director Dr Dvir Abramovich: \"Him saying Free Palestine to me basically felt like a call for my murder.\" The employee was stood down and later left the company. Vodafone's internal review disputed aspects of the account. No criminal charge was reported.",
+      "slogan_recorded": true,
+      "slogan_verbatim": "Free Palestine",
+      "accompanied_by": [
+        "slurs"
+      ],
+      "target": "individual_jew",
+      "sources": [
+        {
+          "name": "Jerusalem Post",
+          "url": "https://www.jpost.com/diaspora/antisemitism/article-900523",
+          "type": "news"
+        },
+        {
+          "name": "Australian Jewish News",
+          "url": "https://www.australianjewishnews.com/",
+          "type": "news"
+        },
+        {
+          "name": "J-Wire",
+          "url": "https://www.jwire.com.au/",
+          "type": "news"
+        }
+      ],
+      "legal_outcome": null,
+      "caveat": null,
+      "tags": [
+        "melbourne",
+        "workplace"
+      ],
+      "added": "2026-08-22",
+      "added_by": "research-session-2026-08-22",
+      "last_updated": "2026-08-22"
+    },
+    {
+      "id": "au-melbourne-2025-03-20-bike-assault",
+      "date": "2025-03-20",
+      "date_display": "20 March 2025",
+      "date_note": null,
+      "country": "AU",
+      "location": "Melbourne, Victoria",
+      "location_short": "Melbourne, Vic",
+      "category": "physical_assault",
+      "summary": "A man shoved a Jewish male off his bicycle near a Melbourne synagogue while yelling \"f****** Jews\", \"Free Palestine\", and \"You kikes\" at the group.",
+      "detail": "Logged in the ECAJ 2025 Annual Report and reproduced in the Menzies Research Centre antisemitism tracker. A man pushed a Jewish male off his bike by shoving his shoulder near a Melbourne synagogue, while yelling \"f****** Jews\", \"Free Palestine\", and \"You kikes\" at the group of Jewish people present.",
+      "slogan_recorded": true,
+      "slogan_verbatim": "f****** Jews; Free Palestine; You kikes",
+      "accompanied_by": [
+        "physical_violence",
+        "slurs"
+      ],
+      "target": "individual_jew",
+      "sources": [
+        {
+          "name": "ECAJ 2025 Annual Report",
+          "url": "https://www.ecaj.org.au/wordpress/wp-content/uploads/ECAJ-Report-Anti-Jewish-Incidents-Australia-2025.pdf",
+          "type": "ngo_report"
+        },
+        {
+          "name": "Menzies Research Centre tracker",
+          "url": "https://www.menziesrc.org/news-feed/antisemitic-incidents-in-australia",
+          "type": "ngo_report"
+        }
+      ],
+      "legal_outcome": null,
+      "caveat": null,
+      "tags": [
+        "melbourne"
+      ],
+      "added": "2026-08-22",
+      "added_by": "research-session-2026-08-22",
+      "last_updated": "2026-08-22"
+    },
+    {
+      "id": "au-melbourne-2025-03-17-death-threat-synagogue",
+      "date": "2025-03-17",
+      "date_display": "17 March 2025",
+      "date_note": null,
+      "country": "AU",
+      "location": "Melbourne, Victoria",
+      "location_short": "Melbourne, Vic",
+      "category": "verbal_abuse",
+      "summary": "An occupant of a passing vehicle yelled \"free Palestine\", \"f*** Jews\", and \"I'm going to kill you\" at a person outside a Melbourne synagogue.",
+      "detail": "Logged in the ECAJ 2025 Annual Report and reproduced in the Menzies Research Centre antisemitism tracker. An occupant of a vehicle driving past a Melbourne synagogue yelled \"free Palestine\", \"f*** Jews\", and \"I'm going to kill you\" at a person outside.",
+      "slogan_recorded": true,
+      "slogan_verbatim": "free Palestine; f*** Jews; I'm going to kill you",
+      "accompanied_by": [
+        "death_threat",
+        "slurs"
+      ],
+      "target": "individual_jew",
+      "sources": [
+        {
+          "name": "ECAJ 2025 Annual Report",
+          "url": "https://www.ecaj.org.au/wordpress/wp-content/uploads/ECAJ-Report-Anti-Jewish-Incidents-Australia-2025.pdf",
+          "type": "ngo_report"
+        },
+        {
+          "name": "Menzies Research Centre tracker",
+          "url": "https://www.menziesrc.org/news-feed/antisemitic-incidents-in-australia",
+          "type": "ngo_report"
+        }
+      ],
+      "legal_outcome": null,
+      "caveat": null,
+      "tags": [
+        "melbourne"
+      ],
+      "added": "2026-08-22",
+      "added_by": "research-session-2026-08-22",
+      "last_updated": "2026-08-22"
+    },
+    {
+      "id": "au-allawah-2025-01-10-synagogue-graffiti",
+      "date": "2025-01-10",
+      "date_display": "10 January 2025",
+      "date_note": null,
+      "country": "AU",
+      "location": "Allawah, Sydney, New South Wales",
+      "location_short": "Allawah, Sydney",
+      "category": "graffiti_vandalism",
+      "summary": "The Southern Sydney Synagogue in Allawah was daubed with \"Free Palestine\", \"Hitler on top\", \"F*** Israel Jew dogs\", and approximately a dozen red and black Nazi swastikas.",
+      "detail": "The Southern Sydney Synagogue (Allawah) was vandalised with \"Free Palestine\", \"Hitler on top\", \"F*** Israel Jew dogs\", \"Jew Dogs\", a reference to \"Allah\", and about a dozen red and black Nazi swastikas. Two men were subsequently charged: Kye Pickering (26) on 26 June 2025 with property damage, displaying a Nazi symbol, and participating in a criminal group; and Tarek Zahabe (27) on 17 July 2025 with directing and participating in a criminal group.",
+      "slogan_recorded": true,
+      "slogan_verbatim": "Free Palestine",
+      "accompanied_by": [
+        "nazi_imagery",
+        "slurs"
+      ],
+      "target": "jewish_institution",
+      "sources": [
+        {
+          "name": "Stop Antisemitism",
+          "url": "https://stopantisemitism.org/01/10/antisemitic-graffiti-appears-on-australia-synagogue/",
+          "type": "advocacy"
+        },
+        {
+          "name": "ECAJ 2025 Annual Report",
+          "url": "https://www.ecaj.org.au/wordpress/wp-content/uploads/ECAJ-Report-Anti-Jewish-Incidents-Australia-2025.pdf",
+          "type": "ngo_report"
+        },
+        {
+          "name": "Menzies Research Centre tracker",
+          "url": "https://www.menziesrc.org/news-feed/antisemitic-incidents-in-australia",
+          "type": "ngo_report"
+        },
+        {
+          "name": "Jerusalem Post",
+          "url": "https://www.jpost.com/diaspora/antisemitism/article-900523",
+          "type": "news"
+        }
+      ],
+      "legal_outcome": "Kye Pickering, 26, charged 26 June 2025 with property damage over $2,000 in company, public display of a Nazi symbol, and participating in a criminal group. Tarek Zahabe, 27, charged 17 July 2025 with directing/participating in a criminal group. Both listed to appear at Downing Centre Local Court, October 2025.",
+      "caveat": "NSW Police later alleged some early-2025 Sydney antisemitic attacks were staged by an organised-crime network; this case is part of that cluster, complicating grassroots motive attribution. The criminal charges were confirmed regardless of motive.",
+      "tags": [
+        "sydney",
+        "nazi_imagery",
+        "organised_crime"
+      ],
+      "added": "2026-08-22",
+      "added_by": "research-session-2026-08-22",
+      "last_updated": "2026-08-22"
+    },
+    {
+      "id": "au-melbourne-2025-fp-printing-doxxing",
+      "date": "2025",
+      "date_display": "2025",
+      "date_note": "Reported during 2025; precise date not available in sources consulted.",
+      "country": "AU",
+      "location": "Melbourne, Victoria (online)",
+      "location_short": "Melbourne (online)",
+      "category": "social_media",
+      "summary": "An Instagram group operating under the name \"Free Palestine Printing\" published the faces of a Melbourne rabbi and pupils at a Jewish school; ECAJ co-CEO Alex Ryvchin described the group as \"the Der Sturmer arm of the anti-Israel movement.\"",
+      "detail": "An Instagram account operating under the name \"Free Palestine Printing\" posted the faces of a Melbourne rabbi and students at a Jewish school, constituting targeted online exposure of Jewish individuals including minors. Antisemitism envoy Jillian Segal and ECAJ co-CEO Alex Ryvchin condemned the posts. Ryvchin described the group as \"the Der Sturmer arm of the anti-Israel movement.\"",
+      "slogan_recorded": true,
+      "slogan_verbatim": "Free Palestine",
+      "accompanied_by": [
+        "doxxing",
+        "intimidation_of_children"
+      ],
+      "target": "jewish_children",
+      "sources": [
+        {
+          "name": "Australian Jewish News",
+          "url": "https://www.australianjewishnews.com/",
+          "type": "news"
+        }
+      ],
+      "legal_outcome": null,
+      "caveat": "The \"Free Palestine\" slogan appears in the group's name and declared purpose rather than as a chant in the moment of harm. This incident is included on the basis that the harmful act — doxxing Jewish children — was carried out explicitly in the name and advancement of the slogan, making the nexus organisational rather than verbal. Specific publication date not available in sources consulted.",
+      "tags": [
+        "melbourne",
+        "online",
+        "doxxing",
+        "children"
+      ],
+      "added": "2026-08-22",
+      "added_by": "research-session-2026-08-22",
+      "last_updated": "2026-08-22"
+    },
+    {
+      "id": "au-melbourne-2024-10-21-vehicle-synagogue",
+      "date": "2024-10-21",
+      "date_display": "21 October 2024",
+      "date_note": null,
+      "country": "AU",
+      "location": "Melbourne, Victoria",
+      "location_short": "Melbourne, Vic",
+      "category": "verbal_abuse",
+      "summary": "An occupant of a vehicle yelled \"F*** Jews\" and \"Free Palestine\" at people outside a Melbourne synagogue.",
+      "detail": "Logged in the ECAJ 2025 Annual Report and reproduced in the Menzies Research Centre antisemitism tracker. An occupant of a passing vehicle yelled \"F*** Jews\" and \"Free Palestine\" at people gathered outside a synagogue in Melbourne.",
+      "slogan_recorded": true,
+      "slogan_verbatim": "F*** Jews; Free Palestine",
+      "accompanied_by": [
+        "slurs"
+      ],
+      "target": "jewish_institution",
+      "sources": [
+        {
+          "name": "ECAJ 2025 Annual Report",
+          "url": "https://www.ecaj.org.au/wordpress/wp-content/uploads/ECAJ-Report-Anti-Jewish-Incidents-Australia-2025.pdf",
+          "type": "ngo_report"
+        },
+        {
+          "name": "Menzies Research Centre tracker",
+          "url": "https://www.menziesrc.org/news-feed/antisemitic-incidents-in-australia",
+          "type": "ngo_report"
+        }
+      ],
+      "legal_outcome": null,
+      "caveat": null,
+      "tags": [
+        "melbourne"
+      ],
+      "added": "2026-08-22",
+      "added_by": "research-session-2026-08-22",
+      "last_updated": "2026-08-22"
+    },
+    {
+      "id": "au-caulfield-2023-11-10-protest-synagogue",
+      "date": "2023-11-10",
+      "date_display": "10 November 2023",
+      "date_note": null,
+      "country": "AU",
+      "location": "Princes Park / Caulfield, Melbourne, Victoria",
+      "location_short": "Caulfield, Melbourne",
+      "category": "protest_intimidation",
+      "summary": "Around 200 \"Free Palestine Melbourne\" protesters gathered at Princes Park adjacent to the Central Shule Chabad synagogue during Shabbat, forcing evacuation of the service; bottles and racial slurs were thrown, and cars with Palestinian flags drove through Caulfield harassing and spitting at Jewish passers-by.",
+      "detail": "Following a suspicious fire at a Palestinian-owned burger shop in Caulfield (later found unrelated to the Jewish community), about 200 protesters operating under the banner of \"Free Palestine Melbourne\" gathered at Princes Park directly opposite the Central Shule Chabad synagogue during Friday Shabbat services. The synagogue was evacuated for the safety of congregants. Bottles and other projectiles were thrown towards Jews outside the synagogue; racial slurs were directed at Jewish people. Cars bearing Palestinian flags drove through Caulfield with occupants verbally harassing and spitting at visibly Jewish passers-by. One man was arrested.",
+      "slogan_recorded": true,
+      "slogan_verbatim": "Free Palestine",
+      "accompanied_by": [
+        "slurs",
+        "religious_disruption",
+        "physical_violence"
+      ],
+      "target": "jewish_institution",
+      "sources": [
+        {
+          "name": "ABC News",
+          "url": "https://www.abc.net.au/news/2023-11-10/gaza-protest-burgertory-caulfield-ceo-fire-victoria-police/103090562",
+          "type": "news"
+        },
+        {
+          "name": "The Jewish Independent",
+          "url": "https://thejewishindependent.com.au/caulfield-and-coogee-a-new-chilling-phase-in-physical-hostility-to-jews/",
+          "type": "news"
+        },
+        {
+          "name": "Australian Jewish News",
+          "url": "https://www.australianjewishnews.com/from-caulfield-to-coogee-hate-comes-to-our-doorstep/",
+          "type": "news"
+        }
+      ],
+      "legal_outcome": "One man arrested at the scene.",
+      "caveat": "This is a protest-context incident. The \"Free Palestine\" slogan was the declared banner of the group that targeted the synagogue and its attendees; it was not a passing individual using the slogan as a weapon. Whether the slogan was chanted in the same moment as specific slurs is not separately documented; the nexus is via the group's identity and deliberate targeting of a Jewish institution.",
+      "tags": [
+        "melbourne",
+        "synagogue_evacuation"
+      ],
+      "added": "2026-08-22",
+      "added_by": "research-session-2026-08-22",
+      "last_updated": "2026-08-22"
+    },
+    {
+      "id": "au-qld-2023-11-08-school",
+      "date": "2023-11-08",
+      "date_display": "8 November 2023",
+      "date_note": null,
+      "country": "AU",
+      "location": "Queensland (school not named)",
+      "location_short": "Queensland",
+      "category": "school",
+      "summary": "\"Free Palestine\" was directed at a student or students at a Queensland public school.",
+      "detail": "Logged as a brief entry in the ECAJ submission to the Anti-Bullying Rapid Review (2025), as one of a series of incidents involving antisemitic abuse at Australian schools following 7 October 2023. School name and detailed circumstances not given in the source.",
+      "slogan_recorded": true,
+      "slogan_verbatim": "Free Palestine",
+      "accompanied_by": [],
+      "target": "jewish_children",
+      "sources": [
+        {
+          "name": "ECAJ Anti-Bullying Rapid Review submission",
+          "url": "https://www.ecaj.org.au/wordpress/wp-content/uploads/ECAJ-submission-to-Anti-Bullying-Rapid-Review-20250620.pdf",
+          "type": "ngo_report"
+        }
+      ],
+      "legal_outcome": null,
+      "caveat": null,
+      "tags": [
+        "queensland",
+        "school"
+      ],
+      "added": "2026-08-22",
+      "added_by": "research-session-2026-08-22",
+      "last_updated": "2026-08-22"
+    },
+    {
+      "id": "au-sandringham-2023-11-01-school-threats",
+      "date": "2023-11-01",
+      "date_display": "1 November 2023",
+      "date_note": null,
+      "country": "AU",
+      "location": "Sandringham, Melbourne, Victoria",
+      "location_short": "Sandringham, Melbourne",
+      "category": "school",
+      "summary": "A student at a Sandringham school subjected a Jewish peer to repeated \"Free Palestine\" abuse and threats including \"I know where you live\", \"I'll bomb you\", and that the Jewish student \"should sleep with one eye open.\"",
+      "detail": "Logged in the ECAJ submission to the Anti-Bullying Rapid Review (2025). A student subjected a Jewish student at the same school to numerous incidents of antisemitic abuse including screaming \"Free Palestine\" at him, accusing Jews of raping Muslims, threatening that he \"knew where [the Jew] lived\", that he \"would bomb [the Jew]\", and that the Jewish student \"should sleep with one eye open.\"",
+      "slogan_recorded": true,
+      "slogan_verbatim": "Free Palestine",
+      "accompanied_by": [
+        "death_threat",
+        "slurs"
+      ],
+      "target": "jewish_children",
+      "sources": [
+        {
+          "name": "ECAJ Anti-Bullying Rapid Review submission",
+          "url": "https://www.ecaj.org.au/wordpress/wp-content/uploads/ECAJ-submission-to-Anti-Bullying-Rapid-Review-20250620.pdf",
+          "type": "ngo_report"
+        }
+      ],
+      "legal_outcome": null,
+      "caveat": null,
+      "tags": [
+        "melbourne",
+        "school"
+      ],
+      "added": "2026-08-22",
+      "added_by": "research-session-2026-08-22",
+      "last_updated": "2026-08-22"
+    },
+    {
+      "id": "au-stkilda-2023-10-19-vehicle-students",
+      "date": "2023-10-19",
+      "date_display": "19 October 2023",
+      "date_note": null,
+      "country": "AU",
+      "location": "St Kilda, Melbourne, Victoria",
+      "location_short": "St Kilda, Melbourne",
+      "category": "verbal_abuse",
+      "summary": "Occupants of a vehicle yelled \"Free Palestine!\" at identifiably Jewish students walking towards a nearby 7-Eleven in St Kilda.",
+      "detail": "Logged in the ECAJ submission to the Anti-Bullying Rapid Review (2025). Identifiably Jewish students walking towards a 7-Eleven in St Kilda were targeted by occupants of a passing vehicle who yelled \"Free Palestine!\" at them.",
+      "slogan_recorded": true,
+      "slogan_verbatim": "Free Palestine!",
+      "accompanied_by": [],
+      "target": "individual_jew",
+      "sources": [
+        {
+          "name": "ECAJ Anti-Bullying Rapid Review submission",
+          "url": "https://www.ecaj.org.au/wordpress/wp-content/uploads/ECAJ-submission-to-Anti-Bullying-Rapid-Review-20250620.pdf",
+          "type": "ngo_report"
+        }
+      ],
+      "legal_outcome": null,
+      "caveat": null,
+      "tags": [
+        "melbourne"
+      ],
+      "added": "2026-08-22",
+      "added_by": "research-session-2026-08-22",
+      "last_updated": "2026-08-22"
+    },
+    {
+      "id": "au-south-sydney-2023-10-playground-assault",
+      "date": "2023-10",
+      "date_display": "Late October / November 2023",
+      "date_note": "Exact date not confirmed; reported shortly after 7 October 2023.",
+      "country": "AU",
+      "location": "South Sydney, New South Wales",
+      "location_short": "South Sydney, NSW",
+      "category": "physical_assault",
+      "summary": "A 44-year-old Jewish man was surrounded and beaten by a pro-Palestinian crowd chanting \"Free Palestine\" at a children's playground; he said he was \"very lucky\" to be alive.",
+      "detail": "A 44-year-old Jewish man was surrounded by a pro-Palestinian crowd at a children's playground in south Sydney after he came across a rally poster. The crowd chanted \"Free Palestine\" and physically assaulted him. He stated he was \"very lucky\" to be alive. Police were reported to be investigating.",
+      "slogan_recorded": true,
+      "slogan_verbatim": "Free Palestine",
+      "accompanied_by": [
+        "physical_violence"
+      ],
+      "target": "individual_jew",
+      "sources": [
+        {
+          "name": "Times of Israel (citing Sky News Australia)",
+          "url": "https://www.timesofisrael.com/",
+          "type": "news"
+        }
+      ],
+      "legal_outcome": "Under police investigation (reported).",
+      "caveat": "The Times of Israel report cites Sky News Australia as the primary source. No direct Sky News URL confirmed. Exact date and location within south Sydney not specified in available reporting.",
+      "tags": [
+        "sydney"
+      ],
+      "added": "2026-08-22",
+      "added_by": "research-session-2026-08-22",
+      "last_updated": "2026-08-22"
+    },
+    {
+      "id": "au-melbourne-2023-10-jewish-school-vehicle",
+      "date": "2023-10",
+      "date_display": "October 2023",
+      "date_note": "Exact date not recorded in source; reported in the period following 7 October 2023.",
+      "country": "AU",
+      "location": "Melbourne, Victoria",
+      "location_short": "Melbourne, Vic",
+      "category": "verbal_abuse",
+      "summary": "A driver yelled \"Free Palestine\" twice at two staff members of a Jewish school who were talking outside.",
+      "detail": "Logged in the ECAJ submission to the Anti-Bullying Rapid Review (2025). A driver pulled alongside two staff members of a Jewish school who were talking and yelled \"Free Palestine\" twice at them before driving on. No further details of location within Melbourne or school identity given in the source.",
+      "slogan_recorded": true,
+      "slogan_verbatim": "Free Palestine",
+      "accompanied_by": [],
+      "target": "jewish_institution",
+      "sources": [
+        {
+          "name": "ECAJ Anti-Bullying Rapid Review submission",
+          "url": "https://www.ecaj.org.au/wordpress/wp-content/uploads/ECAJ-submission-to-Anti-Bullying-Rapid-Review-20250620.pdf",
+          "type": "ngo_report"
+        }
+      ],
+      "legal_outcome": null,
+      "caveat": null,
+      "tags": [
+        "melbourne",
+        "school"
+      ],
+      "added": "2026-08-22",
+      "added_by": "research-session-2026-08-22",
+      "last_updated": "2026-08-22"
+    }
+  ]
+}
