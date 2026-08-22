@@ -92,7 +92,7 @@
 
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    font-size: 15px;
+    font-size: 17px;
     line-height: 1.6;
     color: var(--text);
     background: var(--bg);
@@ -104,6 +104,10 @@
     background: var(--header-bg);
     color: var(--header-text);
     padding: 1.5rem 1.5rem 1.25rem;
+  }
+  .site-header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
   }
   .site-header h1 {
     font-size: 1.3rem;
@@ -133,11 +137,21 @@
     background: var(--warn-bg);
     border-left: 3px solid var(--warn-border);
     padding: 0.75rem 1rem;
-    font-size: 0.82rem;
+    font-size: 0.85rem;
     color: var(--warn);
     line-height: 1.5;
   }
   .context-note a { color: inherit; }
+  .context-note-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .dataset-notes {
+    margin-top: 0.5rem;
+    font-size: 0.82rem;
+    opacity: 0.85;
+    font-style: italic;
+  }
 
   /* ── Layout ── */
   .layout {
@@ -410,18 +424,23 @@
 <body>
 
 <header class="site-header">
-  <h1>"Free Palestine" as Abuse — Incident Tracker</h1>
-  <p class="subtitle">A citable record of incidents in which the slogan "Free Palestine" was explicitly used as a vehicle for antisemitic abuse, threats, or celebration of violence against Jews.</p>
-  <div class="stats-row" id="stats-row">
-    <span class="stat"><span class="stat-n" id="stat-total">—</span><span class="stat-l">incidents</span></span>
-    <span class="stat"><span class="stat-n" id="stat-countries">—</span><span class="stat-l">countries</span></span>
-    <span class="stat"><span class="stat-n" id="stat-range">—</span><span class="stat-l">date range</span></span>
-    <span class="stat"><span class="stat-n" id="stat-updated">—</span><span class="stat-l">last updated</span></span>
+  <div class="site-header-inner">
+    <h1>"Free Palestine" as Abuse — Incident Tracker</h1>
+    <p class="subtitle">A citable record of incidents in which the slogan "Free Palestine" was explicitly used as a vehicle for antisemitic abuse, threats, or celebration of violence against Jews.</p>
+    <div class="stats-row" id="stats-row">
+      <span class="stat"><span class="stat-n" id="stat-total">—</span><span class="stat-l">incidents</span></span>
+      <span class="stat"><span class="stat-n" id="stat-countries">—</span><span class="stat-l">countries</span></span>
+      <span class="stat"><span class="stat-n" id="stat-range">—</span><span class="stat-l">date range</span></span>
+      <span class="stat"><span class="stat-n" id="stat-updated">—</span><span class="stat-l">last updated</span></span>
+    </div>
   </div>
 </header>
 
 <div class="context-note">
-  <strong>Scope:</strong> This dataset records incidents in which the slogan "Free Palestine" was explicitly used as a vehicle for antisemitic abuse, threats, or celebration of violence against Jews. It does not claim the slogan is inherently antisemitic. For context on how the slogan is interpreted and debated, see the <a href="https://www.adl.org/resources/backgrounder/slogan-free-palestine" target="_blank" rel="noopener">ADL backgrounder</a> and the <a href="https://www.ajc.org/news/what-does-free-palestine-really-mean" target="_blank" rel="noopener">AJC explainer</a>. This record exists because those who mean it peacefully have reason to distinguish themselves clearly — for example, by saying "Free Palestine. No more war! Peace for all!"
+  <div class="context-note-inner">
+    <strong>Scope:</strong> This dataset records incidents in which the slogan "Free Palestine" was explicitly used as a vehicle for antisemitic abuse, threats, or celebration of violence against Jews. It does not claim the slogan is inherently antisemitic. For context on how the slogan is interpreted and debated, see the <a href="https://www.adl.org/resources/backgrounder/slogan-free-palestine" target="_blank" rel="noopener">ADL backgrounder</a> and the <a href="https://www.ajc.org/news/what-does-free-palestine-really-mean" target="_blank" rel="noopener">AJC explainer</a>. This record exists because those who mean it peacefully have reason to distinguish themselves clearly — for example, by saying "Free Palestine. No more war! Peace for all!"
+    <p class="dataset-notes" id="dataset-notes" style="display:none"></p>
+  </div>
 </div>
 
 <button class="mobile-filter-toggle" id="mobile-filter-toggle" aria-expanded="false" aria-controls="filter-panel">
@@ -507,6 +526,16 @@
 
   const COUNTRY_NAMES = { AU: 'Australia', US: 'United States', GB: 'United Kingdom', FR: 'France', DE: 'Germany', NL: 'Netherlands', CA: 'Canada' };
 
+  const SOURCE_TYPE_LABELS = {
+    news:                 'News',
+    court_record:         'Court record',
+    police_statement:     'Police statement',
+    ngo_report:           'NGO report',
+    government_statement: 'Government statement',
+    social_media:         'Social media',
+    advocacy:             'Advocacy',
+  };
+
   // ── State ──
   let allIncidents = [];
   let filteredIncidents = [];
@@ -545,11 +574,18 @@
     document.getElementById('stat-countries').textContent = countries.length;
     const dates = allIncidents.map(i => i.date).filter(Boolean).sort();
     if (dates.length) {
-      const earliest = dates[dates.length - 1].slice(0, 4);
-      const latest = dates[0].slice(0, 4);
+      const earliest = dates[0].slice(0, 4);
+      const latest = dates[dates.length - 1].slice(0, 4);
       document.getElementById('stat-range').textContent = earliest === latest ? earliest : earliest + '–' + latest;
     }
     document.getElementById('stat-updated').textContent = meta.last_updated ?? '—';
+
+    // Show dataset notes from metadata
+    if (meta.notes) {
+      const notesEl = document.getElementById('dataset-notes');
+      notesEl.textContent = 'Dataset notes: ' + meta.notes;
+      notesEl.style.display = '';
+    }
 
     buildFilters();
     applyFilters();
@@ -752,10 +788,11 @@
     if (inc.sources && inc.sources.length) {
       html += '<div class="detail-section"><div class="detail-label">Sources</div><ul class="sources-list">';
       inc.sources.forEach(s => {
+        const typeLabel = SOURCE_TYPE_LABELS[s.type] || s.type;
         if (s.url) {
-          html += `<li><a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${esc(s.name)}</a> <span style="color:var(--text3);font-size:0.78rem">[${esc(s.type)}]</span></li>`;
+          html += `<li><a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${esc(s.name)}</a> <span style="color:var(--text3);font-size:0.78rem">[${esc(typeLabel)}]</span></li>`;
         } else {
-          html += `<li>${esc(s.name)} <span style="color:var(--text3);font-size:0.78rem">[${esc(s.type)}, URL not confirmed]</span></li>`;
+          html += `<li>${esc(s.name)} <span style="color:var(--text3);font-size:0.78rem">[${esc(typeLabel)}, URL not confirmed]</span></li>`;
         }
       });
       html += '</ul></div>';
