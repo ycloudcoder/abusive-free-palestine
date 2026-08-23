@@ -50,43 +50,6 @@
       "last_updated": "2026-08-23"
     },
     {
-      "id": "au-qld-2023-school-chair-throat",
-      "date": "2023",
-      "date_display": "Late 2023",
-      "date_note": "Described as \"last year\" in the Courier Mail article published 1 July 2024; precise date not given.",
-      "country": "AU",
-      "location": "Queensland",
-      "location_short": "Queensland",
-      "category": "school",
-      "summary": "A classmate held a chair against the throat of a 13-year-old Jewish student and shouted \"free Palestine\" in his ear; the student was also punched, spat on, given the Nazi salute, and called a \"Kike\" on an almost daily basis.",
-      "detail": "A Queensland Jewish mother, who asked not to be named to protect her children, described sustained antisemitic bullying of her then-13-year-old son at school following the October 7, 2023 Hamas attacks. The most serious incident involved a classmate holding a chair against her son's throat and shouting \"free Palestine\" in his ear. The boy was also punched in the chest, spat at, given the Nazi salute by random students, and called a \"Kike\". The mother described the abuse as occurring \"almost every day.\" She said it was painful to watch because her son had come to accept the bullying as normal: \"The sad thing about it for me is he just accepts that it's okay, he thinks it's normal to be bullied because you're Jewish.\" Queensland Jewish Board of Deputies president Jason Steinberg noted that teachers expressing antisemitic political views had become a new and disturbing phenomenon, with some using \"factually incorrect information\" about Israel in front of students.",
-      "slogan_recorded": true,
-      "slogan_verbatim": "free Palestine",
-      "accompanied_by": [
-        "physical_violence",
-        "slurs",
-        "nazi_imagery"
-      ],
-      "target": "jewish_children",
-      "sources": [
-        {
-          "name": "The Courier Mail",
-          "url": "https://archive.md/EaACm",
-          "type": "news"
-        }
-      ],
-      "legal_outcome": null,
-      "caveat": null,
-      "tags": [
-        "queensland",
-        "school",
-        "children"
-      ],
-      "added": "2026-08-23",
-      "added_by": "manual-2026-08-23",
-      "last_updated": "2026-08-23"
-    },
-    {
       "id": "au-bondi-2026-01-31-mcmillan-conviction",
       "date": "2026-01-31",
       "date_display": "31 January 2026",
@@ -618,6 +581,43 @@
       "added_by": "research-session-2026-08-22",
       "last_updated": "2026-08-23"
     },
+    {
+      "id": "au-qld-2023-school-chair-throat",
+      "date": "2023",
+      "date_display": "Late 2023",
+      "date_note": "Described as \"last year\" in the Courier Mail article published 1 July 2024; precise date not given.",
+      "country": "AU",
+      "location": "Queensland",
+      "location_short": "Queensland",
+      "category": "school",
+      "summary": "A classmate held a chair against the throat of a 13-year-old Jewish student and shouted \"free Palestine\" in his ear; the student was also punched, spat on, given the Nazi salute, and called a \"Kike\" on an almost daily basis.",
+      "detail": "A Queensland Jewish mother, who asked not to be named to protect her children, described sustained antisemitic bullying of her then-13-year-old son at school following the October 7, 2023 Hamas attacks. The most serious incident involved a classmate holding a chair against her son's throat and shouting \"free Palestine\" in his ear. The boy was also punched in the chest, spat at, given the Nazi salute by random students, and called a \"Kike\". The mother described the abuse as occurring \"almost every day.\" She said it was painful to watch because her son had come to accept the bullying as normal: \"The sad thing about it for me is he just accepts that it's okay, he thinks it's normal to be bullied because you're Jewish.\" Queensland Jewish Board of Deputies president Jason Steinberg noted that teachers expressing antisemitic political views had become a new and disturbing phenomenon, with some using \"factually incorrect information\" about Israel in front of students.",
+      "slogan_recorded": true,
+      "slogan_verbatim": "free Palestine",
+      "accompanied_by": [
+        "physical_violence",
+        "slurs",
+        "nazi_imagery"
+      ],
+      "target": "jewish_children",
+      "sources": [
+        {
+          "name": "The Courier Mail",
+          "url": "https://archive.md/EaACm",
+          "type": "news"
+        }
+      ],
+      "legal_outcome": null,
+      "caveat": null,
+      "tags": [
+        "queensland",
+        "school",
+        "children"
+      ],
+      "added": "2026-08-23",
+      "added_by": "manual-2026-08-23",
+      "last_updated": "2026-08-23"
+    },    
     {
       "id": "au-qld-2023-11-08-school",
       "date": "2023-11-08",
