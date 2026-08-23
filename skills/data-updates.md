@@ -1,5 +1,5 @@
 ---
-name: free-palestine-abuse-tracker
+name: data-updates
 description: >
   Use this skill to find and add new incidents to the "Free Palestine as Abuse"
   dataset at data/incidents.json. Triggers: any request to update the tracker,
@@ -150,8 +150,7 @@ Once approved:
 2. Append new entries to `incidents`.
 3. Resort `incidents` by `date` descending (most recent first).
 4. Update `meta.last_updated` to today's ISO date.
-5. Update `meta.incident_count` to match the new array length.
-6. If this update represents a meaningful expansion (new country, new source
+5. If this update represents a meaningful expansion (new country, new source
    type, significant new batch), append a note to `meta.notes`.
 7. Write back and validate the file is valid JSON before confirming completion.
 

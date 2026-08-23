@@ -1,8 +1,7 @@
 {
   "meta": {
     "last_updated": "2026-08-23",
-    "incident_count": 19,
-    "notes": "Seed dataset (v0.1): Australian incidents researched August 2026. Sources include ECAJ 2025 Annual Report, ECAJ Anti-Bullying Rapid Review submission, Menzies Research Centre antisemitism tracker, ABC News, AAP, and specialist outlets. International expansion pending.",
+    "notes":"Seed dataset (v0.1): Australian incidents researched August 2026. Sources include ECAJ 2025 Annual Report, ECAJ Anti-Bullying Rapid Review submission, Menzies Research Centre antisemitism tracker, ABC News, AAP, and specialist outlets. International expansion pending.",
     "primary_sources": [
       "ECAJ Annual Reports (ecaj.org.au)",
       "ECAJ Anti-Bullying Rapid Review Submission (ecaj.org.au)",
