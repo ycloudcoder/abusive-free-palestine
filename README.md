@@ -7,15 +7,26 @@ threats, incitement, or celebration of violence against Jews.
 ## Repo structure
 
 ```
-data/
-  incidents.json        The dataset
-schema/
-  incident.schema.json  JSON Schema for the dataset
-skills/
-  data-updates.md       Curation workflow and inclusion criteria
+data/incidents.json           The dataset — edit this to add or update incidents
+schema/incident.schema.json   JSON Schema defining every field
+skills/data-updates.md        Curation workflow, inclusion criteria, and field guidance
+index.html                    Single-page browser UI — reads data/incidents.json at runtime
 ```
 
-## Note on the name
+## Adding incidents
 
-The repository name reflects the phenomenon being documented: the use of a
-political slogan as a weapon against Jewish people.
+Read `skills/data-updates.md` first. It covers the two modes (manual and
+search), the three inclusion criteria, step-by-step write instructions, and
+field-by-field guidance. The key constraint: the slogan must be explicitly
+documented in the same act as the antisemitic harm — this is not a general
+antisemitism tracker.
+
+## Running locally
+
+Serve the repo root with any static file server, e.g.:
+
+```
+python3 -m http.server
+```
+
+Then open `http://localhost:8000`.
