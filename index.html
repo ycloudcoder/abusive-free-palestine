@@ -674,7 +674,7 @@
 
     // Header stats
     const meta = data.meta || {};
-    document.getElementById('stat-total').textContent = meta.incident_count ?? allIncidents.length;
+    document.getElementById('stat-total').textContent = allIncidents.length;
     document.getElementById('stat-countries').textContent = new Set(allIncidents.map(i => i.country)).size;
     const dates = allIncidents.map(i => i.date).filter(Boolean).sort();
     if (dates.length) {
