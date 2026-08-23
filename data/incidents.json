@@ -1,7 +1,7 @@
 {
   "meta": {
     "last_updated": "2026-08-23",
-    "incident_count": 20,
+    "incident_count": 19,
     "notes": "Seed dataset (v0.1): Australian incidents researched August 2026. Sources include ECAJ 2025 Annual Report, ECAJ Anti-Bullying Rapid Review submission, Menzies Research Centre antisemitism tracker, ABC News, AAP, and specialist outlets. International expansion pending.",
     "primary_sources": [
       "ECAJ Annual Reports (ecaj.org.au)",
@@ -33,13 +33,13 @@
       "target": "individual_jew",
       "sources": [
         {
-          "name": "The Courier Mail (Stella McKenna and Grace Koo)",
+          "name": "The Courier Mail",
           "url": "https://archive.md/9Ra1b",
           "type": "news"
         }
       ],
       "legal_outcome": null,
-      "caveat": "Account based primarily on Asaf's testimony to the Courier Mail. McDonald's confirmed the worker was stood down but did not confirm or deny specific details of the exchange.",
+      "caveat": null,
       "tags": [
         "queensland",
         "brisbane",
@@ -47,7 +47,7 @@
         "fast_food"
       ],
       "added": "2026-08-23",
-      "added_by": "research-session-2026-08-23",
+      "added_by": "manual-2026-08-23",
       "last_updated": "2026-08-23"
     },
     {
@@ -71,56 +71,20 @@
       "target": "jewish_children",
       "sources": [
         {
-          "name": "The Courier Mail (Andreas Nicola)",
+          "name": "The Courier Mail",
           "url": "https://archive.md/EaACm",
           "type": "news"
         }
       ],
       "legal_outcome": null,
-      "caveat": "Identity of school not disclosed. Mother asked not to be named. Incident described retrospectively in a July 2024 article; precise date within 2023 not given.",
+      "caveat": null,
       "tags": [
         "queensland",
         "school",
         "children"
       ],
       "added": "2026-08-23",
-      "added_by": "research-session-2026-08-23",
-      "last_updated": "2026-08-23"
-    },
-    {
-      "id": "au-surfers-paradise-2024-05-11-rally-spit",
-      "date": "2024-05-11",
-      "date_display": "11 May 2024",
-      "date_note": null,
-      "country": "AU",
-      "location": "Surfers Paradise, Gold Coast, Queensland",
-      "location_short": "Surfers Paradise, Gold Coast",
-      "category": "protest_intimidation",
-      "summary": "Joel, a Jewish man on holiday from Victoria, was spat on after replying \"free the hostages\" to the chants of a pro-Palestinian rally in Surfers Paradise; a 54-year-old man was charged with common assault.",
-      "detail": "On 11 May 2024, Joel, a Jewish man visiting Queensland from Victoria, encountered a pro-Palestinian rally in Surfers Paradise which he described as \"vile and anti-Semitic.\" After hearing the crowd's chants he called out \"free the hostages,\" following which two men followed him. The incident was captured on video; two men were seen approaching Joel before a spitting sound could be heard. Joel said the perpetrator \"spat in my mouth\" and that he subsequently required genetic and disease testing. He told the Courier Mail he had since begun hiding signs of being Jewish and did not want to return to the Gold Coast, where he owns a unit. A 54-year-old man was charged with common assault and listed to appear at Southport Magistrates Court on 11 July 2024.",
-      "slogan_recorded": true,
-      "slogan_verbatim": null,
-      "accompanied_by": [
-        "physical_violence"
-      ],
-      "target": "individual_jew",
-      "sources": [
-        {
-          "name": "The Courier Mail (Andreas Nicola)",
-          "url": "https://archive.md/EaACm",
-          "type": "news"
-        }
-      ],
-      "legal_outcome": "A 54-year-old man charged with common assault; listed to appear at Southport Magistrates Court on 11 July 2024.",
-      "caveat": "The specific words of the rally chants directed at Joel are not quoted verbatim in the source. The protest context was pro-Palestinian; slogan_verbatim is set to null accordingly.",
-      "tags": [
-        "queensland",
-        "gold_coast",
-        "rally",
-        "assault"
-      ],
-      "added": "2026-08-23",
-      "added_by": "research-session-2026-08-23",
+      "added_by": "manual-2026-08-23",
       "last_updated": "2026-08-23"
     },
     {
