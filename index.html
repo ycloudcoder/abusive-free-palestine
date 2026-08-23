@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>"Free Palestine" as Abuse — Incident Tracker</title>
+<style>
+  /* ── Reset ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  /* ── Design tokens (light) ── */
+  :root {
+    --bg: #f5f4f1;
+    --surface: #ffffff;
+    --surface2: #eeece8;
+    --border: #dbd8cf;
+    --text: #181715;
+    --text2: #524f4a;
+    --text3: #88847e;
+    --accent: #1d4ed8;
+    --accent-dim: #dbeafe;
+    --accent-text: #1e40af;
+    --info-bg: #eff6ff;
+    --info-border: #93c5fd;
+    --info-text: #1e40af;
+    --warn-bg: #fffbeb;
+    --warn-border: #fbbf24;
+    --warn-text: #78350f;
+    --legal-bg: #ecfdf5;
+    --legal-border: #6ee7b7;
+    --legal-text: #065f46;
+    --focus: #1d4ed8;
+    --header-bg: #181715;
+    --header-text: #f5f4f1;
+
+    /* Accompaniment badge colours bg / text */
+    --badge-death_threat:            #fee2e2; --badge-death_threat-t:            #991b1b;
+    --badge-slurs:                   #fce7f3; --badge-slurs-t:                   #9d174d;
+    --badge-nazi_imagery:            #181715; --badge-nazi_imagery-t:            #f5f4f1;
+    --badge-celebration_of_violence: #fef3c7; --badge-celebration_of_violence-t: #78350f;
+    --badge-pro_hamas_content:       #fee2e2; --badge-pro_hamas_content-t:       #7f1d1d;
+    --badge-physical_violence:       #ffedd5; --badge-physical_violence-t:       #7c2d12;
+    --badge-intimidation_of_children:#ede9fe; --badge-intimidation_of_children-t:#4c1d95;
+    --badge-religious_disruption:    #e0e7ff; --badge-religious_disruption-t:    #312e81;
+    --badge-doxxing:                 #f3e8ff; --badge-doxxing-t:                 #581c87;
+  }
+
+  /* ── Dark palette ── */
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --is-dark: 1; }
+  }
+  :root[data-theme="dark"] { --is-dark: 1; }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #141312;
+      --surface: #1c1b19;
+      --surface2: #232220;
+      --border: #38352f;
+      --text: #edeae4;
+      --text2: #a29e97;
+      --text3: #68645e;
+      --accent: #60a5fa;
+      --accent-dim: #1e3a5f;
+      --accent-text: #93c5fd;
+      --info-bg: #0f1e38;
+      --info-border: #1d4ed8;
+      --info-text: #93c5fd;
+      --warn-bg: #271d08;
+      --warn-border: #78350f;
+      --warn-text: #fbbf24;
+      --legal-bg: #062218;
+      --legal-border: #065f46;
+      --legal-text: #6ee7b7;
+      --header-bg: #0e0d0c;
+      --header-text: #edeae4;
+      --badge-death_threat:            #450a0a; --badge-death_threat-t:            #fca5a5;
+      --badge-slurs:                   #4a0d2b; --badge-slurs-t:                   #f9a8d4;
+      --badge-nazi_imagery:            #edeae4; --badge-nazi_imagery-t:            #181715;
+      --badge-celebration_of_violence: #451a03; --badge-celebration_of_violence-t: #fcd34d;
+      --badge-pro_hamas_content:       #450a0a; --badge-pro_hamas_content-t:       #fca5a5;
+      --badge-physical_violence:       #431407; --badge-physical_violence-t:       #fed7aa;
+      --badge-intimidation_of_children:#2e1065; --badge-intimidation_of_children-t:#c4b5fd;
+      --badge-religious_disruption:    #1e1b4b; --badge-religious_disruption-t:    #a5b4fc;
+      --badge-doxxing:                 #3b0764; --badge-doxxing-t:                 #d8b4fe;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #141312;
+    --surface: #1c1b19;
+    --surface2: #232220;
+    --border: #38352f;
+    --text: #edeae4;
+    --text2: #a29e97;
+    --text3: #68645e;
+    --accent: #60a5fa;
+    --accent-dim: #1e3a5f;
+    --accent-text: #93c5fd;
+    --info-bg: #0f1e38;
+    --info-border: #1d4ed8;
+    --info-text: #93c5fd;
+    --warn-bg: #271d08;
+    --warn-border: #78350f;
+    --warn-text: #fbbf24;
+    --legal-bg: #062218;
+    --legal-border: #065f46;
+    --legal-text: #6ee7b7;
+    --header-bg: #0e0d0c;
+    --header-text: #edeae4;
+    --badge-death_threat:            #450a0a; --badge-death_threat-t:            #fca5a5;
+    --badge-slurs:                   #4a0d2b; --badge-slurs-t:                   #f9a8d4;
+    --badge-nazi_imagery:            #edeae4; --badge-nazi_imagery-t:            #18171s;
+    --badge-celebration_of_violence: #451a03; --badge-celebration_of_violence-t: #fcd34d;
+    --badge-pro_hamas_content:       #450a0a; --badge-pro_hamas_content-t:       #fca5a5;
+    --badge-physical_violence:       #431407; --badge-physical_violence-t:       #fed7aa;
+    --badge-intimidation_of_children:#2e1065; --badge-intimidation_of_children-t:#c4b5fd;
+    --badge-religious_disruption:    #1e1b4b; --badge-religious_disruption-t:    #a5b4fc;
+    --badge-doxxing:                 #3b0764; --badge-doxxing-t:                 #d8b4fe;
+  }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: 18px;
+    line-height: 1.65;
+    color: var(--text);
+    background: var(--bg);
+    min-height: 100vh;
+  }
+
+  /* ── Full-bleed header strip ── */
+  .header-strip {
+    background: var(--header-bg);
+    color: var(--header-text);
+  }
+
+  /* ── Shared page-width wrapper ── */
+  .page-width {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  /* ── Header content ── */
+  .header-content {
+    padding: 1.5rem 0 1.25rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 1rem;
+    align-items: start;
+  }
+  .header-text h1 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.3rem;
+  }
+  .header-text .subtitle {
+    font-size: 0.92rem;
+    opacity: 0.6;
+    margin-bottom: 0.9rem;
+    max-width: 68ch;
+  }
+  .stats-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    font-size: 0.88rem;
+    opacity: 0.8;
+  }
+  .stat { display: flex; flex-direction: column; }
+  .stat-n { font-size: 1.5rem; font-weight: 700; line-height: 1; opacity: 1; }
+  .stat-l { font-size: 0.8rem; opacity: 0.7; }
+
+  /* ── Theme toggle ── */
+  .theme-toggle {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 6px;
+    padding: 0.3rem 0.5rem;
+    cursor: pointer;
+    color: var(--header-text);
+    font-size: 0.8rem;
+    font-weight: 500;
+    white-space: nowrap;
+    margin-top: 0.15rem;
+  }
+  .theme-toggle:hover { background: rgba(255,255,255,0.15); }
+  .theme-toggle:focus-visible { outline: 2px solid var(--header-text); outline-offset: 2px; }
+  .theme-toggle-icon { font-size: 1rem; }
+
+  /* ── Scope / info note ── */
+  .scope-note {
+    background: var(--info-bg);
+    border-top: 1px solid var(--info-border);
+    border-bottom: 1px solid var(--info-border);
+    padding: 0.9rem 0;
+    font-size: 0.9rem;
+    color: var(--info-text);
+    line-height: 1.55;
+  }
+  .scope-note a { color: inherit; }
+  .scope-note a:hover { opacity: 0.8; }
+  .dataset-note {
+    margin-top: 0.4rem;
+    font-size: 0.84rem;
+    opacity: 0.8;
+    font-style: italic;
+  }
+
+  /* ── App body ── */
+  .app-body {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 0;
+    align-items: start;
+  }
+
+  /* ── Filter sidebar ── */
+  .filter-panel {
+    position: sticky;
+    top: 0;
+    max-height: 100vh;
+    overflow-y: auto;
+    background: var(--surface);
+    border-right: 1px solid var(--border);
+    padding: 1.1rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .filter-panel h2 {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--text3);
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+  }
+  .filter-group { display: flex; flex-direction: column; gap: 0.45rem; }
+  .filter-group label {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    color: var(--text2);
+    line-height: 1.3;
+  }
+  .filter-group label:hover { color: var(--text); }
+  .filter-group input[type="checkbox"] { width: 15px; height: 15px; flex-shrink: 0; cursor: pointer; }
+
+  .search-input {
+    width: 100%;
+    padding: 0.5rem 0.65rem;
+    border: 1px solid var(--border);
+    border-radius: 5px;
+    background: var(--surface2);
+    color: var(--text);
+    font-size: 0.9rem;
+    font-family: inherit;
+    outline: none;
+  }
+  .search-input:focus { border-color: var(--focus); box-shadow: 0 0 0 2px var(--accent-dim); }
+
+  .caveat-filter {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    color: var(--text2);
+  }
+  .caveat-filter input { width: 15px; height: 15px; cursor: pointer; }
+
+  .btn-export {
+    width: 100%;
+    padding: 0.55rem;
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-family: inherit;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .btn-export:hover { opacity: 0.88; }
+  .btn-export:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+
+  hr.sep { border: none; border-top: 1px solid var(--border); }
+
+  /* ── Incident list ── */
+  .incident-list-wrap { padding: 1rem 1rem 2rem; }
+  .list-status { font-size: 0.87rem; color: var(--text3); margin-bottom: 0.9rem; }
+  .incident-list { display: flex; flex-direction: column; gap: 0.6rem; }
+
+  /* ── Incident cards ── */
+  .incident-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    contain: layout;
+  }
+
+  .card-header {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.9rem 1rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.85rem;
+    color: var(--text);
+    font-family: inherit;
+  }
+  .card-header:focus-visible { outline: 2px solid var(--focus); outline-offset: -2px; border-radius: 7px; }
+
+  .card-meta {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    min-width: 130px;
+  }
+  .card-date { font-size: 0.83rem; color: var(--text3); font-variant-numeric: tabular-nums; }
+  .card-location {
+    font-size: 0.8rem;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 0.1rem 0.4rem;
+    color: var(--text2);
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 145px;
+  }
+  .card-cat {
+    font-size: 0.77rem;
+    border-radius: 3px;
+    padding: 0.12rem 0.4rem;
+    font-weight: 700;
+    display: inline-block;
+    background: var(--accent-dim);
+    color: var(--accent-text);
+  }
+
+  .card-body { flex: 1 1 auto; }
+  .card-summary { font-size: 0.95rem; line-height: 1.55; text-align: left; }
+  .card-warn-flag {
+    display: inline-block;
+    font-size: 0.88rem;
+    margin-left: 0.4rem;
+    vertical-align: middle;
+  }
+  .card-toggle {
+    flex: 0 0 auto;
+    font-size: 0.78rem;
+    color: var(--text3);
+    align-self: center;
+    padding-top: 0.1rem;
+  }
+
+  /* ── Expanded detail ── */
+  .card-detail {
+    padding: 0 1rem 1rem;
+    border-top: 1px solid var(--border);
+    display: none;
+  }
+  .card-detail.open { display: block; }
+
+  .detail-section { margin-top: 0.85rem; }
+  .detail-label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text3);
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+  }
+  .detail-prose { font-size: 0.93rem; color: var(--text2); line-height: 1.65; }
+
+  blockquote.slogan {
+    border-left: 3px solid var(--accent);
+    padding: 0.45rem 0.85rem;
+    font-style: italic;
+    background: var(--accent-dim);
+    border-radius: 0 5px 5px 0;
+    font-size: 0.93rem;
+    color: var(--text);
+    margin: 0;
+  }
+
+  .badge-row { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+  .badge {
+    font-size: 0.76rem;
+    border-radius: 3px;
+    padding: 0.18rem 0.45rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    letter-spacing: 0.01em;
+  }
+
+  .legal-block {
+    background: var(--legal-bg);
+    border: 1px solid var(--legal-border);
+    border-radius: 5px;
+    padding: 0.55rem 0.85rem;
+    font-size: 0.9rem;
+    color: var(--legal-text);
+    line-height: 1.55;
+  }
+
+  .caveat-block {
+    background: var(--warn-bg);
+    border: 1px solid var(--warn-border);
+    border-radius: 5px;
+    padding: 0.55rem 0.85rem;
+    font-size: 0.9rem;
+    color: var(--warn-text);
+    line-height: 1.55;
+  }
+
+  .sources-list { list-style: none; display: flex; flex-direction: column; gap: 0.25rem; }
+  .sources-list li { font-size: 0.88rem; }
+  .sources-list a { color: var(--accent); text-decoration: none; }
+  .sources-list a:hover { text-decoration: underline; }
+
+  /* ── Mobile filter toggle ── */
+  .mobile-filter-toggle {
+    display: none;
+    width: 100%;
+    padding: 0.7rem 1.5rem;
+    background: var(--surface);
+    border: none;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+    font-size: 0.95rem;
+    font-family: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: left;
+  }
+  .mobile-filter-toggle:focus-visible { outline: 2px solid var(--focus); }
+
+  /* ── Empty / loading ── */
+  .empty-state { text-align: center; padding: 3rem 1rem; color: var(--text3); font-size: 0.95rem; }
+  .loading { padding: 2rem; text-align: center; color: var(--text3); }
+
+  /* ── Mobile layout ── */
+  @media (max-width: 720px) {
+    .header-content { grid-template-columns: 1fr; }
+    .theme-toggle { align-self: start; }
+    .app-body { grid-template-columns: 1fr; }
+    .filter-panel {
+      position: static;
+      max-height: none;
+      border-right: none;
+      border-bottom: 1px solid var(--border);
+      display: none;
+    }
+    .filter-panel.mobile-open { display: flex; }
+    .mobile-filter-toggle { display: block; }
+    .card-header { flex-wrap: wrap; }
+    .card-meta { min-width: unset; flex-direction: row; flex-wrap: wrap; align-items: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Full-bleed dark header, content inside page-width wrapper -->
+<div class="header-strip">
+  <div class="page-width">
+    <div class="header-content">
+      <div class="header-text">
+        <h1>"Free Palestine" as Abuse — Incident Tracker</h1>
+        <p class="subtitle">A citable record of incidents in which the slogan "Free Palestine" was explicitly used as a vehicle for antisemitic abuse, threats, or celebration of violence against Jews.</p>
+        <div class="stats-row">
+          <span class="stat"><span class="stat-n" id="stat-total">—</span><span class="stat-l">incidents</span></span>
+          <span class="stat"><span class="stat-n" id="stat-countries">—</span><span class="stat-l">countries</span></span>
+          <span class="stat"><span class="stat-n" id="stat-range">—</span><span class="stat-l">date range</span></span>
+          <span class="stat"><span class="stat-n" id="stat-updated">—</span><span class="stat-l">last updated</span></span>
+        </div>
+      </div>
+      <button class="theme-toggle" id="theme-toggle" aria-label="Toggle colour theme" title="Toggle light / dark / auto theme">
+        <span class="theme-toggle-icon" id="theme-icon">☀️</span>
+        <span id="theme-label">Light</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Scope note, same width as content below -->
+<div class="scope-note">
+  <div class="page-width">
+    <strong>Scope:</strong> This dataset records incidents in which the slogan "Free Palestine" was explicitly used as a vehicle for antisemitic abuse, threats, or celebration of violence against Jews. It does not claim the slogan is inherently antisemitic. For context on how it is interpreted and debated, see the <a href="https://www.adl.org/resources/backgrounder/slogan-free-palestine" target="_blank" rel="noopener">ADL backgrounder</a> and the <a href="https://www.ajc.org/news/what-does-free-palestine-really-mean" target="_blank" rel="noopener">AJC explainer</a>. This record exists because those who mean it peacefully have reason to distinguish themselves clearly — for example: "Free Palestine. No more war! Peace for all!"
+    <p class="dataset-note" id="dataset-note" style="display:none"></p>
+  </div>
+</div>
+
+<!-- Mobile filter toggle (outside page-width so it's full-bleed) -->
+<button class="mobile-filter-toggle" id="mobile-filter-toggle" aria-expanded="false" aria-controls="filter-panel">
+  ☰ Filters &amp; Search
+</button>
+
+<!-- Main app inside page-width, split into sidebar + list -->
+<div class="page-width">
+  <div class="app-body">
+
+    <aside class="filter-panel" id="filter-panel" role="search" aria-label="Filter incidents">
+
+      <div>
+        <h2>Search</h2>
+        <input type="search" class="search-input" id="search-input" placeholder="Search incidents…" aria-label="Search incidents">
+      </div>
+
+      <hr class="sep">
+
+      <div>
+        <h2>Country</h2>
+        <div class="filter-group" id="country-filters"></div>
+      </div>
+
+      <hr class="sep">
+
+      <div>
+        <h2>Category</h2>
+        <div class="filter-group" id="category-filters"></div>
+      </div>
+
+      <hr class="sep">
+
+      <div>
+        <h2>Accompanied by</h2>
+        <div class="filter-group" id="accompaniment-filters"></div>
+      </div>
+
+      <hr class="sep">
+
+      <label class="caveat-filter">
+        <input type="checkbox" id="caveat-filter"> ⚠️ Has caveat only
+      </label>
+
+      <hr class="sep">
+
+      <button class="btn-export" id="export-btn">Export filtered JSON</button>
+
+    </aside>
+
+    <main class="incident-list-wrap" id="main-content" aria-live="polite" aria-label="Incident list">
+      <p class="loading" id="loading-msg">Loading incidents…</p>
+      <p class="list-status" id="list-status" style="display:none"></p>
+      <div class="incident-list" id="incident-list"></div>
+    </main>
+
+  </div>
+</div>
+
+<script>
+(function () {
+  'use strict';
+
+  // ── Theme toggle ──────────────────────────────────────────────────────────
+  const THEMES = ['auto', 'light', 'dark'];
+  const THEME_META = {
+    auto:  { icon: '🌗', label: 'Auto' },
+    light: { icon: '☀️',  label: 'Light' },
+    dark:  { icon: '🌙', label: 'Dark' },
+  };
+
+  let currentTheme = 'auto';
+  try { currentTheme = localStorage.getItem('theme') || 'auto'; } catch (e) {}
+  if (!THEMES.includes(currentTheme)) currentTheme = 'auto';
+
+  function applyTheme(t) {
+    const root = document.documentElement;
+    if (t === 'dark')  { root.setAttribute('data-theme', 'dark'); }
+    else if (t === 'light') { root.setAttribute('data-theme', 'light'); }
+    else { root.removeAttribute('data-theme'); }
+    document.getElementById('theme-icon').textContent  = THEME_META[t].icon;
+    document.getElementById('theme-label').textContent = THEME_META[t].label;
+    try { localStorage.setItem('theme', t); } catch (e) {}
+  }
+
+  applyTheme(currentTheme);
+
+  document.getElementById('theme-toggle').addEventListener('click', () => {
+    currentTheme = THEMES[(THEMES.indexOf(currentTheme) + 1) % THEMES.length];
+    applyTheme(currentTheme);
+  });
+
+  // ── Constants ─────────────────────────────────────────────────────────────
+  const CATEGORY_LABELS = {
+    verbal_abuse:         'Verbal abuse',
+    graffiti_vandalism:   'Graffiti / vandalism',
+    physical_assault:     'Physical assault',
+    protest_intimidation: 'Protest intimidation',
+    school:               'School',
+    workplace:            'Workplace',
+    social_media:         'Social media',
+    criminal_conviction:  'Criminal conviction',
+    property_damage:      'Property damage',
+  };
+
+  const ACCOMPANIMENT_LABELS = {
+    death_threat:             'Death threat',
+    slurs:                    'Slurs',
+    nazi_imagery:             'Nazi imagery',
+    celebration_of_violence:  'Celebrated violence',
+    pro_hamas_content:        'Pro-Hamas',
+    physical_violence:        'Physical violence',
+    intimidation_of_children: 'Children targeted',
+    religious_disruption:     'Religious disruption',
+    doxxing:                  'Doxxing',
+  };
+
+  const COUNTRY_NAMES = {
+    AU: 'Australia', US: 'United States', GB: 'United Kingdom',
+    FR: 'France', DE: 'Germany', NL: 'Netherlands', CA: 'Canada',
+  };
+
+  const SOURCE_TYPE_LABELS = {
+    news:                 'News',
+    court_record:         'Court record',
+    police_statement:     'Police statement',
+    ngo_report:           'NGO report',
+    government_statement: 'Government statement',
+    social_media:         'Social media',
+    advocacy:             'Advocacy',
+  };
+
+  // ── State ─────────────────────────────────────────────────────────────────
+  let allIncidents = [];
+  let filteredIncidents = [];
+  const activeCountries      = new Set();
+  const activeCategories     = new Set();
+  const activeAccompaniments = new Set();
+  let caveatsOnly  = false;
+  let searchQuery  = '';
+
+  // ── DOM refs ──────────────────────────────────────────────────────────────
+  const listEl         = document.getElementById('incident-list');
+  const statusEl       = document.getElementById('list-status');
+  const loadingEl      = document.getElementById('loading-msg');
+  const searchInput    = document.getElementById('search-input');
+  const caveatsChk     = document.getElementById('caveat-filter');
+  const exportBtn      = document.getElementById('export-btn');
+  const mobileToggle   = document.getElementById('mobile-filter-toggle');
+  const filterPanel    = document.getElementById('filter-panel');
+
+  // ── Fetch ─────────────────────────────────────────────────────────────────
+  fetch('data/incidents.json')
+    .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(init)
+    .catch(err => {
+      loadingEl.textContent = 'Failed to load incidents.json. If running locally, serve via a local web server (e.g. python3 -m http.server).';
+      console.error(err);
+    });
+
+  function init(data) {
+    allIncidents = data.incidents || [];
+
+    // Header stats
+    const meta = data.meta || {};
+    document.getElementById('stat-total').textContent = meta.incident_count ?? allIncidents.length;
+    document.getElementById('stat-countries').textContent = new Set(allIncidents.map(i => i.country)).size;
+    const dates = allIncidents.map(i => i.date).filter(Boolean).sort();
+    if (dates.length) {
+      const earliest = dates[0].slice(0, 4);
+      const latest   = dates[dates.length - 1].slice(0, 4);
+      document.getElementById('stat-range').textContent = earliest === latest ? earliest : earliest + '–' + latest;
+    }
+    document.getElementById('stat-updated').textContent = meta.last_updated ?? '—';
+
+    if (meta.notes) {
+      const el = document.getElementById('dataset-note');
+      el.textContent = 'Dataset notes: ' + meta.notes;
+      el.style.display = '';
+    }
+
+    buildFilters();
+    applyFilters();
+    loadingEl.style.display = 'none';
+    statusEl.style.display  = '';
+
+    searchInput.addEventListener('input', () => { searchQuery = searchInput.value.trim().toLowerCase(); applyFilters(); });
+    caveatsChk.addEventListener('change', () => { caveatsOnly = caveatsChk.checked; applyFilters(); });
+    exportBtn.addEventListener('click', exportJSON);
+    mobileToggle.addEventListener('click', () => {
+      const open = filterPanel.classList.toggle('mobile-open');
+      mobileToggle.setAttribute('aria-expanded', String(open));
+    });
+  }
+
+  // ── Filters ───────────────────────────────────────────────────────────────
+  function buildFilters() {
+    buildCheckboxGroup('country-filters',       [...new Set(allIncidents.map(i => i.country))].sort(),                        activeCountries,      c => COUNTRY_NAMES[c] || c);
+    buildCheckboxGroup('category-filters',      [...new Set(allIncidents.map(i => i.category))].sort(),                       activeCategories,     c => CATEGORY_LABELS[c] || c);
+    buildCheckboxGroup('accompaniment-filters', [...new Set(allIncidents.flatMap(i => i.accompanied_by || []))].sort(),        activeAccompaniments, c => ACCOMPANIMENT_LABELS[c] || c);
+  }
+
+  function buildCheckboxGroup(containerId, values, activeSet, labelFn) {
+    const el = document.getElementById(containerId);
+    el.innerHTML = '';
+    values.forEach(v => {
+      const lbl = document.createElement('label');
+      const cb  = document.createElement('input');
+      cb.type = 'checkbox';
+      cb.value = v;
+      cb.addEventListener('change', () => {
+        if (cb.checked) activeSet.add(v); else activeSet.delete(v);
+        applyFilters();
+      });
+      lbl.appendChild(cb);
+      lbl.appendChild(document.createTextNode(' ' + labelFn(v)));
+      el.appendChild(lbl);
+    });
+  }
+
+  function applyFilters() {
+    filteredIncidents = allIncidents.filter(i => {
+      if (activeCountries.size      && !activeCountries.has(i.country))                                return false;
+      if (activeCategories.size     && !activeCategories.has(i.category))                              return false;
+      if (activeAccompaniments.size && !(i.accompanied_by||[]).some(a => activeAccompaniments.has(a))) return false;
+      if (caveatsOnly               && !i.caveat)                                                      return false;
+      if (searchQuery) {
+        const hay = [i.summary, i.detail, i.location, i.slogan_verbatim].filter(Boolean).join(' ').toLowerCase();
+        if (!hay.includes(searchQuery)) return false;
+      }
+      return true;
+    });
+    renderList();
+    statusEl.textContent = 'Showing ' + filteredIncidents.length + ' of ' + allIncidents.length + ' incidents.';
+  }
+
+  // ── Rendering ─────────────────────────────────────────────────────────────
+  function renderList() {
+    listEl.innerHTML = '';
+    if (!filteredIncidents.length) {
+      const p = document.createElement('p');
+      p.className = 'empty-state';
+      p.textContent = 'No incidents match the current filters.';
+      listEl.appendChild(p);
+      return;
+    }
+    filteredIncidents.forEach((inc, idx) => listEl.appendChild(buildCard(inc, idx)));
+  }
+
+  function buildCard(inc, idx) {
+    const card = document.createElement('article');
+    card.className = 'incident-card';
+
+    // ── Toggle button ──
+    const btn = document.createElement('button');
+    btn.className = 'card-header';
+    btn.setAttribute('aria-expanded', 'false');
+    btn.setAttribute('aria-controls', 'detail-' + idx);
+
+    // Meta column
+    const meta = document.createElement('div');
+    meta.className = 'card-meta';
+
+    const dateEl = document.createElement('span');
+    dateEl.className = 'card-date';
+    dateEl.textContent = inc.date_display;
+    meta.appendChild(dateEl);
+
+    const locEl = document.createElement('span');
+    locEl.className = 'card-location';
+    locEl.textContent = inc.location_short;
+    locEl.title = inc.location;
+    meta.appendChild(locEl);
+
+    const catEl = document.createElement('span');
+    catEl.className = 'card-cat';
+    catEl.textContent = CATEGORY_LABELS[inc.category] || inc.category;
+    meta.appendChild(catEl);
+
+    btn.appendChild(meta);
+
+    // Summary
+    const body = document.createElement('div');
+    body.className = 'card-body';
+    const sumEl = document.createElement('p');
+    sumEl.className = 'card-summary';
+    sumEl.textContent = inc.summary;
+    if (inc.caveat) {
+      const flag = document.createElement('span');
+      flag.className = 'card-warn-flag';
+      flag.textContent = '⚠️';
+      flag.setAttribute('aria-label', 'Has caveat');
+      flag.title = 'This entry has a caveat — see expanded details.';
+      sumEl.appendChild(flag);
+    }
+    body.appendChild(sumEl);
+    btn.appendChild(body);
+
+    // Chevron
+    const chev = document.createElement('span');
+    chev.className = 'card-toggle';
+    chev.textContent = '▼';
+    chev.setAttribute('aria-hidden', 'true');
+    btn.appendChild(chev);
+
+    card.appendChild(btn);
+
+    // ── Detail panel ──
+    const detail = document.createElement('div');
+    detail.className = 'card-detail';
+    detail.id = 'detail-' + idx;
+    detail.innerHTML = buildDetailHTML(inc);
+    card.appendChild(detail);
+
+    btn.addEventListener('click', () => {
+      const open = detail.classList.toggle('open');
+      btn.setAttribute('aria-expanded', String(open));
+      chev.textContent = open ? '▲' : '▼';
+    });
+    btn.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); btn.click(); }
+    });
+
+    return card;
+  }
+
+  function buildDetailHTML(inc) {
+    let h = '';
+
+    if (inc.accompanied_by && inc.accompanied_by.length) {
+      h += '<div class="detail-section"><div class="detail-label">Accompanied by</div><div class="badge-row">';
+      inc.accompanied_by.forEach(a => {
+        h += `<span class="badge" style="background:var(--badge-${a},#e5e7eb);color:var(--badge-${a}-t,#374151)">${esc(ACCOMPANIMENT_LABELS[a] || a)}</span>`;
+      });
+      h += '</div></div>';
+    }
+
+    if (inc.slogan_verbatim) {
+      h += `<div class="detail-section"><div class="detail-label">Slogan as documented</div><blockquote class="slogan">${esc(inc.slogan_verbatim)}</blockquote></div>`;
+    }
+
+    if (inc.date_note) {
+      h += `<div class="detail-section"><div class="detail-label">Date note</div><p class="detail-prose" style="color:var(--text3);font-style:italic">${esc(inc.date_note)}</p></div>`;
+    }
+
+    h += `<div class="detail-section"><div class="detail-label">Detail</div><p class="detail-prose">${esc(inc.detail)}</p></div>`;
+
+    if (inc.legal_outcome) {
+      h += `<div class="detail-section"><div class="legal-block"><strong>⚖️ Legal outcome:</strong> ${esc(inc.legal_outcome)}</div></div>`;
+    }
+
+    if (inc.caveat) {
+      h += `<div class="detail-section"><div class="caveat-block"><strong>⚠️ Caveat:</strong> ${esc(inc.caveat)}</div></div>`;
+    }
+
+    if (inc.sources && inc.sources.length) {
+      h += '<div class="detail-section"><div class="detail-label">Sources</div><ul class="sources-list">';
+      inc.sources.forEach(s => {
+        const tl = SOURCE_TYPE_LABELS[s.type] || s.type;
+        if (s.url) {
+          h += `<li><a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${esc(s.name)}</a> <span style="color:var(--text3);font-size:0.8rem">[${esc(tl)}]</span></li>`;
+        } else {
+          h += `<li>${esc(s.name)} <span style="color:var(--text3);font-size:0.8rem">[${esc(tl)}, URL not confirmed]</span></li>`;
+        }
+      });
+      h += '</ul></div>';
+    }
+
+    return h;
+  }
+
+  function esc(s) {
+    return s == null ? '' : String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+  // ── Export ────────────────────────────────────────────────────────────────
+  function exportJSON() {
+    const blob = new Blob([JSON.stringify(filteredIncidents, null, 2)], { type: 'application/json' });
+    const url  = URL.createObjectURL(blob);
+    const a    = document.createElement('a');
+    a.href = url; a.download = 'incidents-filtered.json';
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    setTimeout(() => URL.revokeObjectURL(url), 5000);
+  }
+
+})();
+</script>
+</body>
+</html>
